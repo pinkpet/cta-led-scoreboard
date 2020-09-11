@@ -91,7 +91,7 @@
       "relative": {
         "to": "time",
         "align": "left-top"
-      } 
+      }
     },
     "meridiem": {
       "position": [2, 0],
@@ -99,7 +99,7 @@
       "relative": {
         "to": "time",
         "align": "right-top"
-      } 
+      }
     }
   },
   "seriesticker":{
@@ -161,7 +161,7 @@
       "align": "left-bottom"
     },
     "board_title":{
-      "position": [1, 1],
+      "position": [1, 0],
       "align": "left-top"
     }
   },
@@ -300,12 +300,12 @@
       "position": ["50%","50%"],
       "font": "wx_medium",
       "align": "center-center"
-    }, 
+    },
     "advisory_us": {
       "position": ["50%","50%"],
       "font": "wx_medium",
       "align": "center-center"
-    },   
+    },
     "advisory_ca": {
       "position": ["50%","50%"],
       "font": "wx_medium",
