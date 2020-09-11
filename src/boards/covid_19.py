@@ -65,7 +65,7 @@ class Covid_19:
                         if case not in ("cases", "todayCases", "deaths","todayDeaths"):
                             continue
                         if case == "todayDeaths":
-                            self.draw_count("Todeys Deaths", self.us_state_data[case],  self.last_update, self.us_state[count])
+                            self.draw_count("Todays Deaths", self.us_state_data[case],  self.last_update, self.us_state[count])
                             self.sleepEvent.wait(3)
                         elif case == "todayCases":
                             self.draw_count("Today's Cases", self.us_state_data[case],  self.last_update, self.us_state[count])
@@ -120,11 +120,11 @@ class Covid_19:
                 "color":(0, 255, 0),
                 "width": 36
             },
-            "Todey's Cases":{
+            "Today's Cases":{
                 "color":(255, 165, 0),
                 "width":48
             },
-            "Todeys Deaths":{
+            "Todays Deaths":{
                 "color":(255, 10, 10),
                 "width":50
             },
@@ -223,7 +223,7 @@ class Covid_19:
 
         self.matrix.draw_text_layout(
             self.layout.board_title,
-            "COVID-19".upper(),
+            "CORID-19".upper(),
             backgroundColor=(0, 255, 0)
         )
 
