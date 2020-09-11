@@ -149,7 +149,7 @@
       }
     },
     "location":{
-      "position": [0, -3],
+      "position": [0, 0],
       "align": "left-bottom",
       "relative": {
         "to": "count",
@@ -161,7 +161,7 @@
       "align": "left-bottom"
     },
     "board_title":{
-      "position": [1, 0],
+      "position": [1, 1],
       "align": "left-top"
     }
   },
