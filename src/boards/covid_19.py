@@ -13,7 +13,7 @@ class Covid_19:
         self.sleepEvent = sleepEvent
         self.sleepEvent.clear()
         self.time_format = self.data.config.time_format
-        
+
         if data.config.covid_ww_board_enabled or (not data.config.covid_ww_board_enabled and not data.config.covid_country_board_enabled and not data.config.covid_us_state_board_enabled and not data.config.covid_canada_board_enabled):
             try:
                 self.worldwide_data = self.data.covid19.ww
@@ -21,7 +21,7 @@ class Covid_19:
                 self.data.network_issues = False
                 for case in self.worldwide_data:
                     if case not in ("cases", "deaths", "recovered"):
-                        continue              
+                        continue
                     self.draw_count(case, self.worldwide_data[case],  self.last_update, "WW")
                     self.sleepEvent.wait(5)
             except ValueError as e:
@@ -32,7 +32,7 @@ class Covid_19:
 
         if data.config.covid_country_board_enabled:
             self.country = data.config.covid_country
-            count = 0 
+            count = 0
             for i in self.country:
                 try:
                     self.data.network_issues = False
@@ -48,7 +48,7 @@ class Covid_19:
                             self.sleepEvent.wait(3)
                         else:
                             self.draw_count(case, self.country_data[case],  self.last_update, self.country[count][0:3])
-                            self.sleepEvent.wait(3)                         
+                            self.sleepEvent.wait(3)
                 except ValueError as e:
                     print("NETWORK ERROR, COULD NOT GET NEW COVID 19 DATA: {}".format(e))
                     self.data.network_issues = True
@@ -57,7 +57,7 @@ class Covid_19:
         if data.config.covid_us_state_board_enabled:
             self.us_state = data.config.covid_us_state
             count = 0
-            for i in self.us_state: 
+            for i in self.us_state:
                 try:
                     self.data.network_issues = False
                     self.us_state_data = self.data.covid19.us_state_dict[self.us_state[count]]
@@ -65,23 +65,23 @@ class Covid_19:
                         if case not in ("cases", "todayCases", "deaths","todayDeaths"):
                             continue
                         if case == "todayDeaths":
-                            self.draw_count("Todays Deaths", self.us_state_data[case],  self.last_update, self.us_state[count])
+                            self.draw_count("Todeys Deaths", self.us_state_data[case],  self.last_update, self.us_state[count])
                             self.sleepEvent.wait(3)
                         elif case == "todayCases":
                             self.draw_count("Today's Cases", self.us_state_data[case],  self.last_update, self.us_state[count])
                             self.sleepEvent.wait(3)
                         else:
                             self.draw_count(case, self.us_state_data[case],  self.last_update, self.us_state[count])
-                            self.sleepEvent.wait(3)  
+                            self.sleepEvent.wait(3)
                 except ValueError as e:
                     print("NETWORK ERROR, COULD NOT GET NEW COVID 19 DATA: {}".format(e))
                     self.data.network_issues = True
                 count += 1
-        
+
         if data.config.covid_canada_board_enabled:
             self.canada_prov = data.config.covid_canada_prov
             count = 0
-            for i in self.canada_prov: 
+            for i in self.canada_prov:
                 try:
                     self.data.network_issues = False
                     self.canada_prov_data = self.data.covid19.canada_prov_dict[self.canada_prov[count]]
@@ -91,11 +91,11 @@ class Covid_19:
                             continue
                         else:
                             self.draw_count(case, self.canada_prov_data['stats'][case],  self.last_update, self.canada_location)
-                            self.sleepEvent.wait(3)  
+                            self.sleepEvent.wait(3)
                 except ValueError as e:
                     print("NETWORK ERROR, COULD NOT GET NEW COVID 19 DATA: {}".format(e))
                     self.data.network_issues = True
-                count += 1        
+                count += 1
 
 
     def get_time_format(self,time_flag):
@@ -211,7 +211,7 @@ class Covid_19:
             'Yukon': 'YT'
         }
         try:
-            location = us_state_abbrev[location] 
+            location = us_state_abbrev[location]
         except:
             location = location
         try:
@@ -234,32 +234,32 @@ class Covid_19:
         self.matrix.draw_text_layout(
             self.layout.count,
             str(count)
-        )      
-        
+        )
+
         self.matrix.draw_text_layout(
             self.layout.location,
             location.upper()
         )
-        
+
         self.matrix.draw_text_layout(
             self.layout.name,
             name.upper(),
             backgroundColor=banner[name]["color"]
         )
-        
+
         for i in range(30):
             self.matrix.draw_pixel((random.randrange(30, 35), random.randrange(0, 7)), (0,random.randrange(90, 255),0))
 
         for i in range(10):
             self.matrix.draw_pixel((random.randrange(35, 40), random.randrange(3, 7)), (0,random.randrange(30, 200),0))
-        
+
         for i in range(5):
             self.matrix.draw_pixel((random.randrange(40, 45), random.randrange(5, 7)), (0,random.randrange(30, 160),0))
-            
+
         self.matrix.render()
 
         if self.data.network_issues:
             self.matrix.network_issue_indicator()
-        
+
         if self.data.newUpdate and not self.data.config.clock_hide_indicators:
             self.matrix.update_indicator()
