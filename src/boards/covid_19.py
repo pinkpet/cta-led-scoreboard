@@ -120,11 +120,11 @@ class Covid_19:
                 "color":(0, 255, 0),
                 "width": 36
             },
-            "Today's Cases":{
+            "Todey's Cases":{
                 "color":(255, 165, 0),
                 "width":48
             },
-            "Todays Deaths":{
+            "Todeys Deaths":{
                 "color":(255, 10, 10),
                 "width":50
             },
