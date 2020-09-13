@@ -18,16 +18,20 @@
 
 	"states":{
 		"off_day": [
-			"covid_19"
+			"covid_19",
+			"standings"
 		],
 		"scheduled": [
-			"covid_19"
+			"covid_19",
+			"standings"
 		],
 		"intermission": [
-			"covid_19"
+			"covid_19",
+			"standings"
 		],
 		"post_game": [
-			"covid_19"
+			"covid_19",
+			"standings"
 		]
 	},
 
