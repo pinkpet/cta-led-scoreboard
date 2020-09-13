@@ -18,8 +18,10 @@
 
 	"states":{
 		"off_day": [
-			"covid_19",
-			"standings"
+			"team_summary",
+			"standings",
+			"scoreticker",
+			"clock"
 		],
 		"scheduled": [
 			"covid_19",
