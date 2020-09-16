@@ -181,7 +181,7 @@ class TeamSummary:
             draw.text((1, 27), "TRAINTIME", fill=(200, 200, 200), font=self.font)
 
         draw.rectangle([0, 48, 36, 42], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
-        draw.text((1, 42), "FUCK SHIT:", fill=(txt_color['r'], txt_color['g'], txt_color['b']),
+        draw.text((1, 42), "TRAIN TIME:", fill=(txt_color['r'], txt_color['g'], txt_color['b']),
                 font=self.font)
 
         if next_game_scoreboard:
