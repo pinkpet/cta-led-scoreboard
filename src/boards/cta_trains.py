@@ -136,7 +136,7 @@ class CtaTrainTracker:
             self.sleepEvent.wait(5)
 
     def draw_team_summary(self, stats, prev_game_scoreboard, next_game_scoreboard, bg_color, txt_color, im_height):
-        image = Image.new('RGB', (41, im_height))
+        image = Image.new('RGB', (12, im_height))
         draw = ImageDraw.Draw(image)
 
         # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
@@ -172,14 +172,10 @@ class CtaTrainTracker:
         pos = 2
 
         for train in trains:
-            draw.text((0, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 255), font=self.font)
+            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 255), font=self.font)
             pos += 7
 
 
         print(trains)
-
-        draw.rectangle([0, 27, 36, 21], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
-        draw.text((1, 21), "LAST GAME:", fill=(txt_color['r'], txt_color['g'], txt_color['b']),
-                font=self.font)
 
         return image
