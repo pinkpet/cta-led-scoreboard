@@ -205,4 +205,6 @@ class TeamSummary:
         else:
             draw.text((1, 52), "--------", fill=(200, 200, 200), font=self.font)
 
+        debug.info("the is the new board")
+
         return image
