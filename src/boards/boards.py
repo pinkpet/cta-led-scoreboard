@@ -186,4 +186,4 @@ class Boards:
         Covid_19(data, matrix, sleepEvent)
 
     def cta_trains(self, data, matrix,sleepEvent):
-        TeamSummary(data, matrix, sleepEvent).render()
+        CtaTrainTracker(data, matrix, sleepEvent).render()

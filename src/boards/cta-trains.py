@@ -11,7 +11,7 @@ from time import sleep
 from utils import convert_date_format, get_file
 from renderer.logos import LogoRenderer
 
-class TeamSummary:
+class CtaTrainTracker:
     def __init__(self, data, matrix,sleepEvent):
         '''
             TODO:
