@@ -17,8 +17,7 @@
     },
     "logo": {
       "position": [0, -12],
-      "align": "bottom-left",
-      "height": 15
+      "align": "bottom-left"
     }
   },
   "scoreboard": {

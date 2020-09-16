@@ -123,20 +123,6 @@ class CtaTrainTracker:
             self.sleepEvent.wait(5)
 
     def draw_team_summary(self, stats, prev_game_scoreboard, bg_color, txt_color, im_height):
-        image = Image.new('RGB', (52, 24))
-        draw = ImageDraw.Draw(image)
-
-        # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
-        # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
-        #         font=self.font)
-        # if stats:
-        #     draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
-        #         font=self.font)
-        #     draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
-        #         font=self.font)
-        # else:
-        #     draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
-
         trains = [
             {
                 "Dest": "Forest Park",
@@ -156,10 +142,27 @@ class CtaTrainTracker:
             }
         ]
 
-        pos = 2
+        train_scroller_height = len(trains) * 8
+
+        image = Image.new('RGB', (64, train_scroller_height))
+        draw = ImageDraw.Draw(image)
+
+        # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
+        # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
+        #         font=self.font)
+        # if stats:
+        #     draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
+        #         font=self.font)
+        #     draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
+        #         font=self.font)
+        # else:
+        #     draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
+
+
+        pos = 1
 
         for train in trains:
-            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 255), font=self.font)
+            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 175), font=self.font)
             pos += 7
 
 
