@@ -139,16 +139,16 @@ class CtaTrainTracker:
         image = Image.new('RGB', (41, im_height))
         draw = ImageDraw.Draw(image)
 
-        draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
-        draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
-                font=self.font)
-        if stats:
-            draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
-                font=self.font)
-            draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
-                font=self.font)
-        else:
-            draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
+        # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
+        # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
+        #         font=self.font)
+        # if stats:
+        #     draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
+        #         font=self.font)
+        #     draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
+        #         font=self.font)
+        # else:
+        #     draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
 
         trains = [
             {
@@ -169,11 +169,11 @@ class CtaTrainTracker:
             }
         ]
 
-        pos = 25
+        pos = 2
 
         for train in trains:
             draw.text((0, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 255), font=self.font)
-            pos += 6
+            pos += 7
 
 
         print(trains)
