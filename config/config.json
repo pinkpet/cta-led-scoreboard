@@ -18,11 +18,7 @@
 
 	"states":{
 		"off_day": [
-			"team_summary",
-			"cta_trains",
-			"standings",
-			"scoreticker",
-			"clock"
+			"cta_trains"
 		],
 		"scheduled": [
 			"covid_19",
@@ -33,8 +29,11 @@
 			"standings"
 		],
 		"post_game": [
-			"covid_19",
-			"standings"
+			"team_summary",
+			"cta_trains",
+			"standings",
+			"scoreticker",
+			"clock"
 		]
 	},
 
