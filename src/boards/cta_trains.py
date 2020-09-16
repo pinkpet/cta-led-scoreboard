@@ -80,7 +80,7 @@ class CtaTrainTracker:
                 self.data.network_issues = True
 
             stats = team.stats
-            im_height = 12
+            im_height = 48
             team_abbrev = team.abbreviation
             team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
 
