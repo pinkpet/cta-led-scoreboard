@@ -169,7 +169,7 @@ class CtaTrainTracker:
             }
         ]
 
-        post = 25
+        pos = 25
 
         for train in trains:
             draw.text((0, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 255), font=self.font)
