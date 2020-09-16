@@ -13,6 +13,7 @@ from boards.covid_19 import Covid_19
 from boards.pbdisplay import pbDisplay
 from boards.wxWeather import wxWeather
 from boards.wxAlert import wxAlert
+from boards.cta-trains import CtaTrainTracker
 from time import sleep
 
 
