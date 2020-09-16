@@ -80,7 +80,7 @@ class CtaTrainTracker:
                 self.data.network_issues = True
 
             stats = team.stats
-            im_height = 67
+            im_height = 48
             team_abbrev = team.abbreviation
             team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
 
@@ -150,11 +150,24 @@ class CtaTrainTracker:
         else:
             draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
 
-        trains = {
-            "Forest Park": "2 mins",
-            "O'Hare": "4 mins",
-            "UIC Halsted": "7 mins"
-        }
+        trains = [
+            {
+                "Dest": "Forest Park",
+                "Time": "2 mins"
+            },
+            {
+                "Dest": "O'Hare",
+                "Time": "4 mins"
+            },
+            {
+                "Dest": "UIC Halsted",
+                "Time": "6 mins"
+            },
+            {
+                "Dest": "Rosemont",
+                "Time": "9 mins"
+            }
+        ]
 
         print(trains)
 
