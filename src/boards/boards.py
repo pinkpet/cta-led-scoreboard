@@ -46,7 +46,7 @@ class Boards:
                 board = getattr(self,data.config.pushbutton_state_triggered1)
                 data.curr_board = data.config.pushbutton_state_triggered1
                 bord_index -= 1
-            
+
             # Display the Weather Alert board
             if data.wx_alert_interrupt:
                 debug.info('Weather Alert triggered in off day loop....will display weather alert board')
@@ -75,7 +75,7 @@ class Boards:
                 board = getattr(self,data.config.pushbutton_state_triggered1)
                 data.curr_board = data.config.pushbutton_state_triggered1
                 bord_index -= 1
-            
+
             # Display the Weather Alert board
             if data.wx_alert_interrupt:
                 debug.info('Weather Alert triggered in off day loop....will display weather alert board')
@@ -105,7 +105,7 @@ class Boards:
                 board = getattr(self,data.config.pushbutton_state_triggered1)
                 data.curr_board = data.config.pushbutton_state_triggered1
                 bord_index -= 1
-            
+
             # Display the Weather Alert board
             if data.wx_alert_interrupt:
                 debug.info('Weather Alert triggered in off day loop....will display weather alert board')
@@ -135,7 +135,7 @@ class Boards:
                 board = getattr(self,data.config.pushbutton_state_triggered1)
                 data.curr_board = data.config.pushbutton_state_triggered1
                 bord_index -= 1
-            
+
             # Display the Weather Alert board
             if data.wx_alert_interrupt:
                 debug.info('Weather Alert triggered in off day loop....will display weather alert board')
@@ -175,12 +175,15 @@ class Boards:
 
     def pbdisplay(self, data, matrix,sleepEvent):
         pbDisplay(data, matrix, sleepEvent)
-    
+
     def weather(self, data, matrix,sleepEvent):
         wxWeather(data, matrix, sleepEvent)
-    
+
     def wxalert(self, data, matrix,sleepEvent):
         wxAlert(data, matrix, sleepEvent)
 
     def covid_19(self, data, matrix,sleepEvent):
         Covid_19(data, matrix, sleepEvent)
+
+    def cta_trains(self, data, matrix,sleepEvent):
+        TeamSummary(data, matrix, sleepEvent).render()
