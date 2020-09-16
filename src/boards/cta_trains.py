@@ -78,7 +78,6 @@ class CtaTrainTracker:
                 image = self.draw_team_summary(
                     stats,
                     prev_game_scoreboard,
-                    next_game_scoreboard,
                     bg_color,
                     txt_color,
                     im_height
@@ -123,7 +122,7 @@ class CtaTrainTracker:
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
-    def draw_team_summary(self, stats, prev_game_scoreboard, next_game_scoreboard, bg_color, txt_color, im_height):
+    def draw_team_summary(self, stats, prev_game_scoreboard, bg_color, txt_color, im_height):
         image = Image.new('RGB', (52, im_height))
         draw = ImageDraw.Draw(image)
 
