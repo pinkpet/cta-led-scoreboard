@@ -16,7 +16,7 @@
       "position": ["0%", 0]
     },
     "logo": {
-      "position": [0, 0],
+      "position": [0, -12],
       "align": "bottom-left"
     }
   },

@@ -123,7 +123,7 @@ class CtaTrainTracker:
             self.sleepEvent.wait(5)
 
     def draw_team_summary(self, stats, prev_game_scoreboard, bg_color, txt_color, im_height):
-        image = Image.new('RGB', (52, im_height))
+        image = Image.new('RGB', (52, 24))
         draw = ImageDraw.Draw(image)
 
         # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
