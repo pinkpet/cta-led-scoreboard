@@ -74,6 +74,8 @@ class CtaTrainTracker:
 
             i = 0
 
+            draw.rectangle([20, 8, 64, -1], fill=(0, 0, 200))
+
             if not self.sleepEvent.is_set():
                 image = self.draw_team_summary(
                     stats,
@@ -125,8 +127,6 @@ class CtaTrainTracker:
     def draw_team_summary(self, stats, prev_game_scoreboard, bg_color, txt_color, im_height):
         image = Image.new('RGB', (52, 24))
         draw = ImageDraw.Draw(image)
-
-        draw.rectangle([0, 25, 64, -1], fill=(0, 0, 200))
 
         # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
         # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
