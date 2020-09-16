@@ -73,7 +73,8 @@ class CtaTrainTracker:
             team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
 
             i = 0
-
+            image = Image.new('RGB', (52, 24))
+            draw = ImageDraw.Draw(image)
             draw.rectangle([20, 8, 64, -1], fill=(0, 0, 200))
 
             if not self.sleepEvent.is_set():
