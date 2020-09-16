@@ -169,6 +169,12 @@ class CtaTrainTracker:
             }
         ]
 
+        for train in trains:
+            pos = 19
+            draw.text((0, pos), "{}  {}".format(train['Dest'], trains['Time']), fill=(0, 0, 255), font=self.font)
+            pos += 6
+
+
         print(trains)
 
         draw.rectangle([0, 27, 36, 21], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
