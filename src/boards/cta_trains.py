@@ -25,7 +25,7 @@ class CtaTrainTracker:
         self.team_colors = data.config.team_colors
 
         self.font = data.config.layout.font
-        self.layout = data.config.config.layout.get_board_layout('team_summary')
+        self.layout = data.config.config.layout.get_board_layout('cta_tracker')
 
         self.sleepEvent = sleepEvent
         self.sleepEvent.clear()
@@ -65,18 +65,6 @@ class CtaTrainTracker:
                 self.data.network_issues = False
             except ValueError:
                 prev_game_scoreboard = False
-                self.data.network_issues = True
-
-            try:
-                if next_game:
-                    next_game_id = self.teams_info[team_id].next_game.dates[0]["games"][0]["gamePk"]
-                    next_game_scoreboard = Scoreboard(nhl_api.overview(next_game_id), self.data)
-                else:
-                    next_game_scoreboard = False
-
-                self.data.network_issues = False
-            except ValueError:
-                next_game_scoreboard = False
                 self.data.network_issues = True
 
             stats = team.stats

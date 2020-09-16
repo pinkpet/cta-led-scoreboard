@@ -11,6 +11,15 @@
       "position": ["65%", 0]
     }
   },
+  "cta_tracker": {
+    "info": {
+      "position": ["0%", 0]
+    },
+    "logo": {
+      "position": [0, 0],
+      "align": "bottom-left"
+    }
+  },
   "scoreboard": {
     "home_logo": {
       "position": [["50%", 15], 0],
