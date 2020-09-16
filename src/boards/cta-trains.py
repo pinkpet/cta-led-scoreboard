@@ -178,7 +178,7 @@ class TeamSummary:
                             fill=(255, 255, 255), font=self.font)
 
         else:
-            draw.text((1, 27), "--------", fill=(200, 200, 200), font=self.font)
+            draw.text((1, 27), "TRAINTIME", fill=(200, 200, 200), font=self.font)
 
         draw.rectangle([0, 48, 36, 42], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
         draw.text((1, 42), "FUCK SHIT:", fill=(txt_color['r'], txt_color['g'], txt_color['b']),
@@ -204,7 +204,5 @@ class TeamSummary:
                           font=self.font)
         else:
             draw.text((1, 52), "TRAIN TIME", fill=(200, 200, 200), font=self.font)
-
-        debug.info("the is the new board")
 
         return image
