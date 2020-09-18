@@ -105,7 +105,7 @@ class CtaTrainTracker:
                 )
                 self.matrix.clear()
 
-                self.matrix.draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
+                self.matrix.draw.rectangle([0, 20, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
 
                 logo_renderer.render()
 
