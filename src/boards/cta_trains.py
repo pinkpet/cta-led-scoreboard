@@ -165,7 +165,7 @@ class CtaTrainTracker:
 
 
         pos = 1
-        draw.rectangle((0, 0, 31, 31), fill=(0, 0, 0), outline=(0, 0, 255))
+        draw.rectangle((0, 0, 31, 31), fill=(255, 0, 0), outline=(0, 0, 255))
         for train in cta_data:
             draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 175), font=self.font)
             pos += 7
