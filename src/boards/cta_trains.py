@@ -107,10 +107,7 @@ class CtaTrainTracker:
 
                 logo_renderer.render()
 
-                self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
-                self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
-                self.matrix.render()
-                self.sleepEvent.wait(5)
+
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image,
@@ -144,6 +141,10 @@ class CtaTrainTracker:
 
                 self.sleepEvent.wait(0.3)
 
+            self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
+            self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
+            self.matrix.render()
+            self.sleepEvent.wait(5)
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
