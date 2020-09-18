@@ -193,7 +193,7 @@ class CtaTrainTracker:
 
         return image
 
-    def draw_bottom_bar():
+    def draw_bottom_bar(self):
         image_bottom_bar = Image.new('RGB', (64,8))
         draw = ImageDraw.Draw(image_bottom_bar)
 
