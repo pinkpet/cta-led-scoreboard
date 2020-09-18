@@ -140,7 +140,13 @@ class CtaTrainTracker:
                 self.matrix.clear()
 
                 logo_renderer.render()
-                self.matrix.draw_bottom_bar()
+
+                self.matrix.draw_image_layout(
+                self.layout.info,
+                image_bottom_bar,
+                (0,0)
+                )
+
                 self.matrix.draw_image_layout(
                 self.layout.info,
                 image,
