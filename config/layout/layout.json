@@ -13,7 +13,8 @@
   },
   "cta_tracker": {
     "info": {
-      "position": ["0%", 0]
+      "position": ["0%", 0],
+      "align": "right"
     },
     "logo": {
       "position": [0, -12],
