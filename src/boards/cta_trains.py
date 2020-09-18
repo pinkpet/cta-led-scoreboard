@@ -32,6 +32,27 @@ class CtaTrainTracker:
 
     def render(self):
         for team_id in self.preferred_teams:
+
+            trains = [
+                {
+                    "Dest": "Forest Park",
+                    "Time": "2 mins"
+                },
+                {
+                    "Dest": "O'Hare",
+                    "Time": "4 mins"
+                },
+                {
+                    "Dest": "UIC Halsted",
+                    "Time": "6 mins"
+                },
+                {
+                    "Dest": "Rosemont",
+                    "Time": "9 mins"
+                }
+            ]
+
+
             self.team_id = team_id
 
             team = self.teams_info[team_id]
@@ -122,27 +143,9 @@ class CtaTrainTracker:
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
-    def draw_team_summary(self, stats, prev_game_scoreboard, bg_color, txt_color, im_height):
-        trains = [
-            {
-                "Dest": "Forest Park",
-                "Time": "2 mins"
-            },
-            {
-                "Dest": "O'Hare",
-                "Time": "4 mins"
-            },
-            {
-                "Dest": "UIC Halsted",
-                "Time": "6 mins"
-            },
-            {
-                "Dest": "Rosemont",
-                "Time": "9 mins"
-            }
-        ]
+    def draw_team_summary(self, cta_data, prev_game_scoreboard, bg_color, txt_color, im_height):
 
-        train_scroller_height = len(trains) * 8
+        train_scroller_height = len(cta_data) * 8
 
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
@@ -161,11 +164,11 @@ class CtaTrainTracker:
 
         pos = 1
 
-        for train in trains:
+        for train in cta_data:
             draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 175), font=self.font)
             pos += 7
 
 
-        print(trains)
+        print(cta_data)
 
         return image
