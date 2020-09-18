@@ -103,6 +103,9 @@ class CtaTrainTracker:
                     txt_color,
                     im_height
                 )
+
+                image_bottom_bar = self.draw_bottom_bar()
+
                 self.matrix.clear()
 
                 logo_renderer.render()
@@ -112,6 +115,12 @@ class CtaTrainTracker:
                     self.layout.info,
                     image,
                 )
+
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_bottom_bar,
+                )
+
                 self.matrix.render()
                 if self.data.network_issues:
                     self.matrix.network_issue_indicator()
@@ -179,6 +188,11 @@ class CtaTrainTracker:
         return image
 
     def draw_bottom_bar():
+        image_bottom_bar = Image.new('RGB', (64,8))
+        draw = ImageDraw.Draw(image_bottom_bar)
+
         self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
         self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
         self.matrix.render()
+
+        return image_bottom_bar
