@@ -14,7 +14,7 @@
   "cta_tracker": {
     "info": {
       "position": ["0%", 0],
-      "align": "right"
+      "align": "center-top"
     },
     "logo": {
       "position": [0, -12],
