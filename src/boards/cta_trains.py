@@ -121,7 +121,7 @@ class CtaTrainTracker:
             self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
             self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
             self.matrix.render()
-            
+
             self.sleepEvent.wait(5)
 
             # Move the image up until we hit the bottom.
@@ -131,6 +131,7 @@ class CtaTrainTracker:
                 self.matrix.clear()
 
                 logo_renderer.render()
+                self.matrix.draw_bottom_bar()
                 self.matrix.draw_image_layout(
                 self.layout.info,
                 image,
@@ -176,3 +177,8 @@ class CtaTrainTracker:
         print(cta_data)
 
         return image
+
+    def draw_bottom_bar():
+        self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
+        self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
+        self.matrix.render()
