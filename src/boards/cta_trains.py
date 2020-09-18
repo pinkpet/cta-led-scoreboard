@@ -119,6 +119,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_bottom_bar,
+                    (0,25),
                 )
 
                 self.matrix.render()
@@ -144,7 +145,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                 self.layout.info,
                 image_bottom_bar,
-                (0,0)
+                (0,25)
                 )
 
                 self.matrix.draw_image_layout(
@@ -188,7 +189,6 @@ class CtaTrainTracker:
             draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 175), font=self.font)
             pos += 7
 
-
         print(cta_data)
 
         return image
@@ -197,8 +197,10 @@ class CtaTrainTracker:
         image_bottom_bar = Image.new('RGB', (64,8))
         draw = ImageDraw.Draw(image_bottom_bar)
 
-        self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
+        self.matrix.draw.rectangle([0, 0, 26, 10], fill=(255, 0, 0))
         self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
         self.matrix.render()
+
+        print('ya it happened')
 
         return image_bottom_bar
