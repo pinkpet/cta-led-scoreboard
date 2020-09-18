@@ -97,7 +97,7 @@ class CtaTrainTracker:
 
             if not self.sleepEvent.is_set():
                 image = self.draw_team_summary(
-                    stats,
+                    trains,
                     prev_game_scoreboard,
                     bg_color,
                     txt_color,
