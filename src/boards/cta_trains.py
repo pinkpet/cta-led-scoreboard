@@ -129,7 +129,6 @@ class CtaTrainTracker:
                     self.matrix.update_indicator()
 
             self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
-            self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
             self.matrix.render()
 
             self.sleepEvent.wait(5)
