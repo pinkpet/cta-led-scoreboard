@@ -89,7 +89,7 @@ class CtaTrainTracker:
                 self.data.network_issues = True
 
             stats = team.stats
-            im_height = 48
+            im_height = 64
             team_abbrev = team.abbreviation
             team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
 
@@ -105,10 +105,11 @@ class CtaTrainTracker:
                 )
                 self.matrix.clear()
 
+                logo_renderer.render()
+
                 self.matrix.draw.rectangle([0, 20, 26, 10], fill=(255, 0, 0))
                 self.matrix.draw.rectangle((0, 0, 31, 31), fill=(0, 255, 0), outline=(0, 0, 255))
                 self.matrix.render()
-                logo_renderer.render()
 
                 self.matrix.draw_image_layout(
                     self.layout.info,
