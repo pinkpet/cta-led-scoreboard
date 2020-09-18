@@ -196,8 +196,8 @@ class CtaTrainTracker:
         image_bottom_bar = Image.new('RGB', (0,8))
         draw = ImageDraw.Draw(image_bottom_bar)
 
-        self.matrix.draw.rectangle([0, 0, 26, 10], fill=(255, 0, 0))
-        self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
+        # self.matrix.draw.rectangle([0, 0, 26, 10], fill=(255, 0, 0))
+        # self.matrix.draw.rectangle((0, 8, 64, 25), fill=(0, 0, 200), outline=(0, 0, 255))
         self.matrix.render()
 
         print('ya it happened')
