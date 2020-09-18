@@ -35,7 +35,7 @@ class CtaTrainTracker:
 
             trains = [
                 {
-                    "Dest": "Forest Park",
+                    "Dest": "For. Park",
                     "Time": "2 mins"
                 },
                 {
@@ -43,7 +43,7 @@ class CtaTrainTracker:
                     "Time": "4 mins"
                 },
                 {
-                    "Dest": "UIC Halsted",
+                    "Dest": "UIC Hals.",
                     "Time": "6 mins"
                 },
                 {
@@ -104,6 +104,8 @@ class CtaTrainTracker:
                     im_height
                 )
                 self.matrix.clear()
+
+                draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
 
                 logo_renderer.render()
 
