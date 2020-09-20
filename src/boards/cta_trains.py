@@ -172,7 +172,7 @@ class CtaTrainTracker:
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
         image = Image.open(get_file('assets/images/cta-logo.ppm').convert('RGB')
-        image.resize((self.matrix.width, self.matrix.height), Image.ANTIALIAS)
+#        image.resize((self.matrix.width, self.matrix.height), Image.ANTIALIAS)
 
         double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = self.image.size
