@@ -202,6 +202,7 @@ class CtaTrainTracker:
         cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
         self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
         self.matrix.render()
+        self.sleepEvent.wait(5)        
         print("Sleeping now...do you see the CTA?")
 
 
