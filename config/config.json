@@ -22,8 +22,7 @@
 			"clock",
 			"scoreticker",
 			"standings",
-			"weather",
-			"wxWeather"
+			"wxweather"
 		],
 		"scheduled": [
 			"covid_19",
