@@ -176,8 +176,11 @@ class CtaTrainTracker:
 
         # double_buffer = self.matrix.CreateFrameCanvas()
         # img_width, img_height = self.image.size
-        self.matrix.SetImage(cta_logo_image, 0)
-
+        #self.matrix.SetImage(cta_logo_image, 0)
+        self.matrix.draw_image((0, 0), cta_logo_image, "center")
+        self.matrix.render()
+        time.sleep(4)
+        print("Sleeping now...do you see the CTA?")
         # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
         # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
         #         font=self.font)
