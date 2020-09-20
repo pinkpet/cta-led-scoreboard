@@ -188,9 +188,9 @@ class CtaTrainTracker:
         return image
 
     def draw_bottom_bar(self):
-        image_bottom_bar = Image.new('RGB', (64,32))
+        image_bottom_bar = Image.new('RGB', (64,8))
         draw = ImageDraw.Draw(image_bottom_bar)
-        self.matrix.draw.rectangle([0, 0, 64, 8], fill=(250, 0, 0))
+        draw.rectangle([0, 0, 5, 5], fill=(250, 0, 0))
 
         # self.matrix.draw.rectangle([0, 23, self.matrix.width, self.matrix.height], fill=(0, 0, 205))
 
