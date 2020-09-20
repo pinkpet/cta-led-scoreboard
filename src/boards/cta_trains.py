@@ -171,6 +171,12 @@ class CtaTrainTracker:
 
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
+        image = Image.open('cta_logo.ppm').convert('RGB')
+        image.resize((self.matrix.width, self.matrix.height), Image.ANTIALIAS)
+
+        double_buffer = self.matrix.CreateFrameCanvas()
+        img_width, img_height = self.image.size
+        self.matrix.SetImage(cta_logo_image, xpos)
 
         # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
         # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
@@ -198,8 +204,9 @@ class CtaTrainTracker:
         draw = ImageDraw.Draw(image_bottom_bar)
         draw.rectangle([0, 0, 64, 8], fill=(0, 0, 200))
 
-        # self.matrix.draw.rectangle([0, 23, self.matrix.width, self.matrix.height], fill=(0, 0, 205))
-
+        # double_buffer.SetImage(self.image, xpos)
+        #
+        # double_buffer = self.matrix.SwapOnVSync(double_buffer)
         self.matrix.render()
 
         print('ya it happened')
