@@ -171,16 +171,7 @@ class CtaTrainTracker:
 
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
-        cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
-#        image.resize((self.matrix.width, self.matrix.height), Image.ANTIALIAS)
 
-        # double_buffer = self.matrix.CreateFrameCanvas()
-        # img_width, img_height = self.image.size
-        #self.matrix.SetImage(cta_logo_image, 0)
-        self.matrix.draw_image((0, 0), cta_logo_image, "center")
-        self.matrix.render()
-        self.sleepEvent.wait(4)
-        print("Sleeping now...do you see the CTA?")
         # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
         # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
         #         font=self.font)
@@ -203,9 +194,17 @@ class CtaTrainTracker:
         return image
 
     def draw_bottom_bar(self):
-        image_bottom_bar = Image.new('RGB', (64,8))
+        image_bottom_bar = Image.new('RGB', (64,32))
         draw = ImageDraw.Draw(image_bottom_bar)
+
         draw.rectangle([0, 0, 64, 8], fill=(0, 0, 200))
+
+        cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
+        self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
+        self.matrix.render()
+        print("Sleeping now...do you see the CTA?")
+
+
 
         # double_buffer.SetImage(self.image, xpos)
         #
