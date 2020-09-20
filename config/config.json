@@ -20,6 +20,9 @@
 		"off_day": [
 			"cta_trains",
 			"clock",
+			"scoreticker",
+			"standings",
+			"weather",
 			"wxWeather"
 		],
 		"scheduled": [
