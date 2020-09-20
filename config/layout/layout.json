@@ -17,7 +17,7 @@
     },
     "bottom_bar": {
       "position": [0, 0],
-      "align": "bottom"
+      "align": "bottom-left"
     },
     "logo": {
       "position": [0, -12],
