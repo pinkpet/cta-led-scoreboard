@@ -144,7 +144,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                 self.layout.info,
                 image_bottom_bar,
-                (0,25)
+                (0,0)
                 )
 
                 self.matrix.draw_image_layout(
