@@ -117,9 +117,8 @@ class CtaTrainTracker:
                 )
 
                 self.matrix.draw_image_layout(
-                    self.layout.info,
+                    self.layout.bottom_bar,
                     image_bottom_bar,
-                    (0,25),
                 )
 
                 self.matrix.render()
@@ -128,7 +127,7 @@ class CtaTrainTracker:
                 if self.data.newUpdate and not self.data.config.clock_hide_indicators:
                     self.matrix.update_indicator()
 
-            self.matrix.draw.rectangle([0, 23, self.matrix.width, self.matrix.height], fill=(0, 0, 205))
+            # self.matrix.draw.rectangle([0, 23, self.matrix.width, self.matrix.height], fill=(0, 0, 205))
             self.matrix.render()
 
             self.sleepEvent.wait(5)

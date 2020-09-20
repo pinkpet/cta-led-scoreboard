@@ -15,6 +15,9 @@
     "info": {
       "position": ["0%", 0]
     },
+    "bottom_bar": {
+      "position": [0, 0]
+    },
     "logo": {
       "position": [0, -12],
       "align": "bottom-left"
