@@ -199,8 +199,8 @@ class CtaTrainTracker:
 
         draw.rectangle([0, 0, 64, 8], fill=(0, 0, 150))
 
-#        cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
-#        self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
+        cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
+        self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
         self.matrix.render()
         self.sleepEvent.wait(5)
         print("Sleeping now...do you see the CTA?")
