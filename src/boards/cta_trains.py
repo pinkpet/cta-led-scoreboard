@@ -154,7 +154,7 @@ class CtaTrainTracker:
 
     def draw_train_times(self, cta_data, bg_color, txt_color, im_height):
 
-        train_scroller_height = len(cta_data) * 8
+        train_scroller_height = len(cta_data) * 7
 
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
