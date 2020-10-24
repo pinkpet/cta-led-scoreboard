@@ -96,14 +96,12 @@ class CtaTrainTracker:
             i = 0
 
             if not self.sleepEvent.is_set():
-                # KILL ME IF FINE
-                # image = self.draw_team_summary(
-                #     trains,
-                #     prev_game_scoreboard,
-                #     bg_color,
-                #     txt_color,
-                #     im_height
-                # )
+                image = self.draw_train_times(
+                    trains,
+                    bg_color,
+                    txt_color,
+                    im_height
+                )
 
                 image_bottom_bar = self.draw_bottom_bar()
 
@@ -166,23 +164,23 @@ class CtaTrainTracker:
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
-    # KILL ME IF FINEdef draw_team_summary(self, cta_data, prev_game_scoreboard, bg_color, txt_color, im_height):
-    #
-    #     train_scroller_height = len(cta_data) * 8
-    #
-    #     image = Image.new('RGB', (64, train_scroller_height))
-    #     draw = ImageDraw.Draw(image)
-    #
-    #     # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
-    #     # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
-    #     #         font=self.font)
-    #     # if stats:
-    #     #     draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
-    #     #         font=self.font)
-    #     #     draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
-    #     #         font=self.font)
-    #     # else:
-    #     #     draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
+    def draw_train_times(self, cta_data, bg_color, txt_color, im_height):
+
+        train_scroller_height = len(cta_data) * 8
+
+        image = Image.new('RGB', (64, train_scroller_height))
+        draw = ImageDraw.Draw(image)
+
+        # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
+        # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
+        #         font=self.font)
+        # if stats:
+        #     draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
+        #         font=self.font)
+        #     draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
+        #         font=self.font)
+        # else:
+        #     draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
 
 
         pos = 0
