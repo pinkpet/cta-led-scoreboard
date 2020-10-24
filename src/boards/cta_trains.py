@@ -181,10 +181,10 @@ class CtaTrainTracker:
         return image
 
     def draw_bottom_bar(self):
-        image_bottom_bar = Image.new('RGB', (64,32))
+        image_bottom_bar = Image.new('RGB', (64,28))
         draw = ImageDraw.Draw(image_bottom_bar)
 
-        draw.rectangle([0, 0, 64, 15], fill=(0, 157, 220))
+        draw.rectangle([0, 0, 64, 10], fill=(0, 157, 220))
 
         cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
         self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
