@@ -76,17 +76,17 @@ class CtaTrainTracker:
                 'team_summary'
             )
 
-            try:
-                if prev_game:
-                    prev_game_id = self.teams_info[team_id].previous_game.dates[0]["games"][0]["gamePk"]
-                    prev_game_scoreboard = Scoreboard(nhl_api.overview(prev_game_id), self.data)
-                else:
-                    prev_game_scoreboard = False
-
-                self.data.network_issues = False
-            except ValueError:
-                prev_game_scoreboard = False
-                self.data.network_issues = True
+            # try:
+            #     if prev_game:
+            #         prev_game_id = self.teams_info[team_id].previous_game.dates[0]["games"][0]["gamePk"]
+            #         prev_game_scoreboard = Scoreboard(nhl_api.overview(prev_game_id), self.data)
+            #     else:
+            #         prev_game_scoreboard = False
+            #
+            #     self.data.network_issues = False
+            # except ValueError:
+            #     prev_game_scoreboard = False
+            #     self.data.network_issues = True
 
             stats = team.stats
             im_height = 64
@@ -115,9 +115,9 @@ class CtaTrainTracker:
                 )
 
                 self.matrix.draw_image_layout(
-                self.layout.info,
-                image_bottom_bar,
-                (0, 24)
+                    self.layout.info,
+                    image_bottom_bar,
+                    (0, 12)
                 )
 
                 # self.matrix.draw.rectangle([0, 0, self.matrix.width, 8], fill=(250, 0, 0))
