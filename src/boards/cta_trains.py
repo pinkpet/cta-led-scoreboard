@@ -117,7 +117,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_bottom_bar,
-                    (0, 12)
+                    (0, 20)
                 )
 
                 # self.matrix.draw.rectangle([0, 0, self.matrix.width, 8], fill=(250, 0, 0))
@@ -150,7 +150,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                 self.layout.info,
                 image_bottom_bar,
-                (0, 24)
+                (0, 20)
                 )
 
                 self.matrix.render()
