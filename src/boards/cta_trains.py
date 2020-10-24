@@ -171,18 +171,6 @@ class CtaTrainTracker:
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
 
-        # draw.rectangle([0, 6, 26, -1], fill=(bg_color['r'], bg_color['g'], bg_color['b']))
-        # draw.text((1, 0), "RECORD:".format(), fill=(txt_color['r'], txt_color['g'], txt_color['b']),
-        #         font=self.font)
-        # if stats:
-        #     draw.text((0, 7), "GP:{} P:{}".format(stats.gamesPlayed, stats.pts), fill=(255, 255, 255),
-        #         font=self.font)
-        #     draw.text((0, 13), "{}-{}-{}".format(stats.wins, stats.losses, stats.ot), fill=(255, 255, 255),
-        #         font=self.font)
-        # else:
-        #     draw.text((1, 7), "--------", fill=(200, 200, 200), font=self.font)
-
-
         pos = 0
         for train in cta_data:
             draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 175), font=self.font)
@@ -196,7 +184,7 @@ class CtaTrainTracker:
         image_bottom_bar = Image.new('RGB', (64,32))
         draw = ImageDraw.Draw(image_bottom_bar)
 
-        draw.rectangle([0, 0, 64, 8], fill=(0, 0, 150))
+        draw.rectangle([0, 0, 64, 10], fill=(0, 157, 220))
 
         cta_logo_image = Image.open(get_file('assets/images/cta-logo.ppm'))
         self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
