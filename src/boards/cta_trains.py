@@ -173,7 +173,7 @@ class CtaTrainTracker:
 
         pos = 0
         for train in cta_data:
-            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(0, 0, 175), font=self.font)
+            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(255, 255, 255), font=self.font)
             pos += 7
 
         print(cta_data)
@@ -184,7 +184,7 @@ class CtaTrainTracker:
         image_bottom_bar = Image.new('RGB', (64,32))
         draw = ImageDraw.Draw(image_bottom_bar)
 
-        draw.rectangle([0, 0, 64, 10], fill=(0, 157, 220))
+        draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
 
         cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
         self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
@@ -192,13 +192,7 @@ class CtaTrainTracker:
         self.sleepEvent.wait(5)
         print("Sleeping now...do you see the CTA?")
 
-
-
-        # double_buffer.SetImage(self.image, xpos)
-        #
-        # double_buffer = self.matrix.SwapOnVSync(double_buffer)
         self.matrix.render()
-
         print('ya it happened')
 
         return image_bottom_bar
