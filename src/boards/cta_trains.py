@@ -111,18 +111,15 @@ class CtaTrainTracker:
                 # self.matrix.draw.rectangle([0, 0, self.matrix.width, 8], fill=(250, 0, 0))
 
                 self.matrix.render()
-                if self.data.network_issues:
-                    self.matrix.network_issue_indicator()
-                if self.data.newUpdate and not self.data.config.clock_hide_indicators:
-                    self.matrix.update_indicator()
 
             # self.matrix.draw.rectangle([0, 23, self.matrix.width, self.matrix.height], fill=(0, 0, 205))
             self.matrix.render()
 
-            self.sleepEvent.wait(5)
+            self.sleepEvent.wait(1)
 
             # Move the image up until we hit the bottom.
-            while i > -(im_height - self.matrix.height) and not self.sleepEvent.is_set():
+            train_scroller_height = len(cta_data) * 7
+            while i > -(train_scroller_height):
                 i -= 1
 
                 self.matrix.clear()
@@ -153,8 +150,6 @@ class CtaTrainTracker:
             self.sleepEvent.wait(5)
 
     def draw_train_times(self, cta_data, bg_color, txt_color, im_height):
-
-        train_scroller_height = len(cta_data) * 7
 
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
