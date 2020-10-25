@@ -177,6 +177,7 @@ class CtaTrainTracker:
             draw.text((1, pos), "{}".format(cta_data[loop_count + train_start]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
             draw.text((40,pos), "{}".format(cta_data[loop_count + train_start]['Time']), fill=(255, 255, 255), font=self.font, align="center")
             pos += 7
+            print(str(loop_count)+" worked")
 
         print(cta_data)
 
