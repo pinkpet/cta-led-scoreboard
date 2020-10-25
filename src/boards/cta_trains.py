@@ -117,12 +117,11 @@ class CtaTrainTracker:
                     image_train_top_two,
                 )
 
-                # ***START HERE the goal is to use the same function and have it put the two fixed trains and then the revolving trains below it.
-                # self.matrix.draw_image_layout(
-                #     self.layout.info,
-                #     image_train_bottom_rest,
-                #     (0, 15)
-                # )
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_train_bottom_rest,
+                    (0, 15)
+                )
 
                 self.matrix.draw_image_layout(
                     self.layout.info,
@@ -147,6 +146,12 @@ class CtaTrainTracker:
                 self.layout.info,
                 image_train_top_two,
                 (0, i)
+                )
+
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_train_bottom_rest,
+                    (0, 15)
                 )
 
                 self.matrix.draw_image_layout(
