@@ -90,9 +90,6 @@ class CtaTrainTracker:
                     2,
                     len(trains)
                 )
-                print(len(trains))
-                print(len(trains))
-                print(len(trains))
 
                 #cta SCROLLER!
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
@@ -111,7 +108,15 @@ class CtaTrainTracker:
                 # draw = ImageDraw.Draw(image_bottom_bar)
                 # draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
 
+                #load fancy bottom bar png
                 image_bottom_bar = Image.open(get_file('assets/images/cta_bottom_bar.png'))
+
+                #draw up the weather data
+                #emoji test
+                image_weather = Image.new('RGB', (20, 10))
+                draw = ImageDraw.Draw(image_weather)
+                draw.text((1, pos), "Sup", fill=(255, 255, 255), font=self.font, align="right")
+                print('\U0001f638')
 
                 self.matrix.clear()
 
@@ -140,6 +145,7 @@ class CtaTrainTracker:
 
             # Move the image up until we hit the bottom.
             train_scroller_height = (len(trains) - 3) * 7
+            i = 0
             while i > -(train_scroller_height):
                 i -= 1
 
