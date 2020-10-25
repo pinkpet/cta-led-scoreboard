@@ -171,10 +171,10 @@ class CtaTrainTracker:
         draw = ImageDraw.Draw(image)
 
         pos = 0
-        loop_count = 0
-        while pos < train_max * 7:
-            draw.text((1, pos), "{}".format(cta_data[loop_count + train_start]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.text((40,pos), "{}".format(cta_data[loop_count + train_start]['Time']), fill=(255, 255, 255), font=self.font, align="center")
+        loop_count = 0 + train_start
+        while loop_count < train_max:
+            draw.text((1, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
+            draw.text((40,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="center")
             pos += 7
             print(str(loop_count)+" worked")
             loop_count += 1
