@@ -96,6 +96,11 @@ class CtaTrainTracker:
                 self.matrix.render()
                 self.sleepEvent.wait(10)
 
+                # bottom bar rectangle --TO DO add weather, time
+                image_bottom_bar = Image.new('RGB', (64,12))
+                draw = ImageDraw.Draw(image_bottom_bar)
+                draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
+
                 self.matrix.clear()
 
                 logo_renderer.render()
@@ -169,14 +174,7 @@ class CtaTrainTracker:
     def draw_bottom_bar(self):
         image_bottom_bar = Image.new('RGB', (64,12))
         draw = ImageDraw.Draw(image_bottom_bar)
-
         draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
-
-        cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
-        self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
-        self.matrix.render()
-        self.sleepEvent.wait(3)
-        print("Sleeping now...do you see the CTA?")
 
         self.matrix.render()
         print('ya it happened')
