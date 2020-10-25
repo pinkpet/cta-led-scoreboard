@@ -156,6 +156,7 @@ class CtaTrainTracker:
         train_max = 2
         train_count = 0
         while train_count < train_max:
+            train_count += 1
             for train in cta_data:
                 draw.text((1, pos), "{}".format(train['Dest']), fill=(255, 255, 255), font=self.font, align="right")
                 draw.text((40,pos), "{}".format(train['Time']), fill=(255, 255, 255), font=self.font, align="center")
