@@ -106,9 +106,12 @@ class CtaTrainTracker:
                     self.sleepEvent.wait(0.02)
 
                 # bottom bar rectangle --TO DO add weather, time
-                image_bottom_bar = Image.new('RGB', (64,12))
-                draw = ImageDraw.Draw(image_bottom_bar)
-                draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
+
+                # image_bottom_bar = Image.new('RGB', (64,12))
+                # draw = ImageDraw.Draw(image_bottom_bar)
+                # draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
+
+                image_bottom_bar = Image.open(get_file('assets/images/cta_bottom_bar.png'))
 
                 self.matrix.clear()
 
