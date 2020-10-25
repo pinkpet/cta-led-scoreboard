@@ -79,11 +79,9 @@ class CtaTrainTracker:
                     len(trains) * 7
                 )
 
+                #cta SCROLLER!
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
-                print(cta_logo_image.size)
-                print(cta_logo_image.size)
-                print(cta_logo_image.size)
                 cta_xpos = 0
                 while cta_xpos < cta_img_width:
                     cta_xpos += 1
@@ -152,7 +150,7 @@ class CtaTrainTracker:
 
         pos = 0
         for train in cta_data:
-            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(255, 255, 255), font=self.font)
+            draw.text((1, pos), "{}  {}".format(train['Dest'], train['Time']), fill=(255, 255, 255), font=self.font, align="right")
             pos += 7
 
         print(cta_data)
