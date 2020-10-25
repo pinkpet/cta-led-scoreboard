@@ -113,11 +113,11 @@ class CtaTrainTracker:
                     image_train_top_two,
                 )
 
-                self.matrix.draw_image_layout(
-                    self.layout.info,
-                    image_train_bottom_rest,
-                    (0, 15)
-                )
+                # self.matrix.draw_image_layout(
+                #     self.layout.info,
+                #     image_train_bottom_rest,
+                #     (0, 15)
+                # )
 
                 self.matrix.draw_image_layout(
                     self.layout.info,
