@@ -120,7 +120,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_train_bottom_rest,
-                    (0, 15)
+                    (0, 14)
                 )
 
                 self.matrix.draw_image_layout(
@@ -136,28 +136,28 @@ class CtaTrainTracker:
             self.sleepEvent.wait(3)
 
             # Move the image up until we hit the bottom.
-            train_scroller_height = len(trains) * 7
-            while i > -(train_scroller_height - 21):
+            train_scroller_height = (len(trains) - 2) * 7
+            while i > -(train_scroller_height - 14):
                 i -= 1
 
                 self.matrix.clear()
 
-                self.matrix.draw_image_layout(
-                self.layout.info,
-                image_train_top_two,
-                (0, i)
-                )
+                # self.matrix.draw_image_layout(
+                #     self.layout.info,
+                #     image_train_top_two,
+                #     (0, i)
+                # )
 
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_train_bottom_rest,
-                    (0, 15)
+                    (0, i + 14)
                 )
 
                 self.matrix.draw_image_layout(
-                self.layout.info,
-                image_bottom_bar,
-                (0, 22)
+                    self.layout.info,
+                    image_bottom_bar,
+                    (0, 22)
                 )
 
                 self.matrix.render()
@@ -166,7 +166,10 @@ class CtaTrainTracker:
                 if self.data.newUpdate and not self.data.config.clock_hide_indicators:
                     self.matrix.update_indicator()
 
-                self.sleepEvent.wait(0.3)
+                if i%7 == 0:
+                    self.sleepEvent.wait(2)
+                else:
+                    self.sleepEvent.wait(0.3)
 
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
