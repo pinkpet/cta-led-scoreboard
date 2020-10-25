@@ -92,7 +92,7 @@ class CtaTrainTracker:
                 while cta_xpos < cta_img_width:
                     cta_xpos += 1
                     self.matrix.clear()
-                    self.matrix.draw_image((cta_xpos, 0), cta_logo_image, "top-left")
+                    self.matrix.draw_image((-cta_xpos, 0), cta_logo_image, "top-left")
                     self.matrix.render()
                     self.sleepEvent.wait(0.05)
 
