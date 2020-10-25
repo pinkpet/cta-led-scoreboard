@@ -155,7 +155,6 @@ class CtaTrainTracker:
         pos = 0
         train_max = 2
         train_count = 0
-        print(cta_data.dtype)
         while train_count < train_max:
             train_count += 1
             draw.text((1, pos), "{}".format(cta_data[train_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
