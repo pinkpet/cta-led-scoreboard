@@ -94,6 +94,7 @@ class CtaTrainTracker:
                     self.matrix.clear()
                     self.matrix.draw_image((cta_xpos, 0), cta_logo_image, "top-left")
                     self.matrix.render()
+                    self.sleepEvent.wait(0.05)
 
                 self.sleepEvent.wait(3)
 
