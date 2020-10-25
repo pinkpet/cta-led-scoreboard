@@ -85,17 +85,14 @@ class CtaTrainTracker:
                     2
                 )
 
-                image_train_bottom_rest = self.draw_train_times(
-                    trains,
-                    2,
-                    len(trains)
-                )
-
                 # image_train_bottom_rest = self.draw_train_times(
                 #     trains,
                 #     2,
                 #     len(trains)
                 # )
+                print(len(trains))
+                print(len(trains))
+                print(len(trains))
 
                 #cta SCROLLER!
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
