@@ -84,6 +84,12 @@ class CtaTrainTracker:
                     2
                 )
 
+                image_train_bottom_rest = self.draw_train_times(
+                    trains,
+                    2,
+                    10
+                )
+
                 #cta SCROLLER!
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
@@ -105,6 +111,12 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_train_top_two,
+                )
+
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_train_bottom_rest,
+                    (0, 15)
                 )
 
                 self.matrix.draw_image_layout(
