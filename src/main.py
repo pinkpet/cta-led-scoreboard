@@ -68,7 +68,7 @@ def run():
         pushbuttonThread = threading.Thread(target=pushbutton.run, args=())
         pushbuttonThread.daemon = True
         pushbuttonThread.start()
-    
+
     if data.config.weather_enabled:
         if data.config.weather_data_feed.lower() == "owm":
             owmweather = owmWxWorker(data,sleepEvent)
@@ -98,10 +98,10 @@ def run():
         else:
             debug.error("No valid weather alerts providers selected, skipping alerts feed")
             data.config.weather_show_alerts = False
-    
+
     #
     # Run check for updates against github on a background thread on a scheduler
-    #     
+    #
 
     if commandArgs.updatecheck:
         data.UpdateRepo = commandArgs.updaterepo
@@ -117,5 +117,5 @@ if __name__ == "__main__":
         run()
 
     except KeyboardInterrupt:
-        print("Exiting NHL-LED-SCOREBOARD\n")
+        print("Exiting CTA-SCOREBOARD. Doors closing.\n")
         sys.exit(0)
