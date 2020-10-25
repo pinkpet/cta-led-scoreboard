@@ -76,7 +76,7 @@ class CtaTrainTracker:
             if not self.sleepEvent.is_set():
                 image = self.draw_train_times(
                     trains,
-                    im_height
+                    len(trains) * 7
                 )
 
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
@@ -147,8 +147,7 @@ class CtaTrainTracker:
             self.sleepEvent.wait(5)
 
     def draw_train_times(self, cta_data, im_height):
-        train_scroller_height = len(cta_data) * 7
-        image = Image.new('RGB', (64, train_scroller_height))
+        image = Image.new('RGB', (64, im_height))
         draw = ImageDraw.Draw(image)
 
         pos = 0
@@ -159,13 +158,3 @@ class CtaTrainTracker:
         print(cta_data)
 
         return image
-
-    # def draw_bottom_bar(self):
-    #     image_bottom_bar = Image.new('RGB', (64,12))
-    #     draw = ImageDraw.Draw(image_bottom_bar)
-    #     draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
-    #
-    #     self.matrix.render()
-    #     print('ya it happened')
-    #
-    #     return image_bottom_bar
