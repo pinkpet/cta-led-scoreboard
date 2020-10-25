@@ -47,7 +47,7 @@ class CtaTrainTracker:
                 "Time": "9 mins"
             }
         ]
-        train_scroller_height = len(cta_data) * 7
+        train_scroller_height = len(trains) * 7
     def render(self):
         for team_id in self.preferred_teams:
 
