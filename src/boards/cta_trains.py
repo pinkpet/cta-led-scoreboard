@@ -63,8 +63,6 @@ class CtaTrainTracker:
             )
 
             team_colors = self.data.config.team_colors
-            bg_color = team_colors.color("{}.primary".format(team_id))
-            txt_color = team_colors.color("{}.text".format(team_id))
             prev_game = team.previous_game
             next_game = team.next_game
 
@@ -78,8 +76,6 @@ class CtaTrainTracker:
             if not self.sleepEvent.is_set():
                 image = self.draw_train_times(
                     trains,
-                    bg_color,
-                    txt_color,
                     im_height
                 )
 
