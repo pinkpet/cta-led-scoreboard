@@ -85,7 +85,7 @@ class CtaTrainTracker:
 
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
-
+                print(cta_img_width + "IS THE WIDTH")
                 cta_xpos = 0
                 while cta_xpos < cta_img_width:
                     self.matrix.clear()
