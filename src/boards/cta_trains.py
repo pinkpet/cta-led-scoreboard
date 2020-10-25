@@ -78,7 +78,7 @@ class CtaTrainTracker:
             i = 0
 
             if not self.sleepEvent.is_set():
-                image = self.draw_train_times(
+                image_train_top_two = self.draw_train_times(
                     trains,
                     len(trains) * 7
                 )
@@ -103,7 +103,7 @@ class CtaTrainTracker:
 
                 self.matrix.draw_image_layout(
                     self.layout.info,
-                    image,
+                    image_train_top_two,
                 )
 
                 self.matrix.draw_image_layout(
@@ -127,7 +127,7 @@ class CtaTrainTracker:
 
                 self.matrix.draw_image_layout(
                 self.layout.info,
-                image_train_text,
+                image_train_top_two,
                 (0, i)
                 )
 
@@ -153,11 +153,14 @@ class CtaTrainTracker:
         draw = ImageDraw.Draw(image)
 
         pos = 0
-        for train in cta_data:
-            draw.text((1, pos), "{}".format(train['Dest']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.text((40,pos), "{}".format(train['Time']), fill=(255, 255, 255), font=self.font, align="center")
-            pos += 7
+        train_max = 2
+        train_count = 0
+        while train_count < train_max:
+            for train in cta_data:
+                draw.text((1, pos), "{}".format(train['Dest']), fill=(255, 255, 255), font=self.font, align="right")
+                draw.text((40,pos), "{}".format(train['Time']), fill=(255, 255, 255), font=self.font, align="center")
+                pos += 7
 
         print(cta_data)
 
-        return image_train_text
+        return image
