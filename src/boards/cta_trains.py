@@ -49,7 +49,7 @@ class CtaTrainTracker:
                 {
                     "Dest": "Rosemont",
                     "Time": "9 mins"
-                }
+                },
                 {
                     "Dest": "For. Park",
                     "Time": "18 mins"
