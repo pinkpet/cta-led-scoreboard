@@ -78,10 +78,11 @@ class CtaTrainTracker:
             i = 0
 
             if not self.sleepEvent.is_set():
+                #Create images for the train scroller
                 image_train_top_two = self.draw_train_times(
                     trains,
                     0,
-                    2
+                    3
                 )
 
                 # image_train_bottom_rest = self.draw_train_times(
@@ -113,6 +114,7 @@ class CtaTrainTracker:
                     image_train_top_two,
                 )
 
+                # ***START HERE the goal is to use the same function and have it put the two fixed trains and then the revolving trains below it.
                 # self.matrix.draw_image_layout(
                 #     self.layout.info,
                 #     image_train_bottom_rest,
@@ -123,12 +125,6 @@ class CtaTrainTracker:
                     self.layout.info,
                     image_bottom_bar,
                     (0, 22)
-                )
-
-                self.matrix.draw_image_layout(
-                    self.layout.info,
-                    image_train_top_two,
-                    (0, 24)
                 )
 
                 self.matrix.render()
