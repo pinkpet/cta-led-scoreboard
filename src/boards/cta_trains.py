@@ -85,11 +85,11 @@ class CtaTrainTracker:
                     2
                 )
 
-                # image_train_bottom_rest = self.draw_train_times(
-                #     trains,
-                #     2,
-                #     len(trains)
-                # )
+                image_train_bottom_rest = self.draw_train_times(
+                    trains,
+                    2,
+                    len(trains)
+                )
                 print(len(trains))
                 print(len(trains))
                 print(len(trains))
@@ -173,12 +173,11 @@ class CtaTrainTracker:
         pos = 0
         loop_count = 0
         while pos < train_max * 7:
-            loop_count += 1
             draw.text((1, pos), "{}".format(cta_data[loop_count + train_start]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
             draw.text((40,pos), "{}".format(cta_data[loop_count + train_start]['Time']), fill=(255, 255, 255), font=self.font, align="center")
             pos += 7
             print(str(loop_count)+" worked")
-
+            loop_count += 1
         print(cta_data)
 
         return image
