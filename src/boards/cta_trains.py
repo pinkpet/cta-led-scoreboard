@@ -114,11 +114,8 @@ class CtaTrainTracker:
                     (0, 22)
                 )
 
-                # self.matrix.draw.rectangle([0, 0, self.matrix.width, 8], fill=(250, 0, 0))
-
                 self.matrix.render()
 
-            # self.matrix.draw.rectangle([0, 23, self.matrix.width, self.matrix.height], fill=(0, 0, 205))
             self.matrix.render()
 
             self.sleepEvent.wait(1)
@@ -153,7 +150,7 @@ class CtaTrainTracker:
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
-    def draw_train_times(self, cta_data, bg_color, txt_color, im_height):
+    def draw_train_times(self, cta_data, im_height):
         train_scroller_height = len(cta_data) * 7
         image = Image.new('RGB', (64, train_scroller_height))
         draw = ImageDraw.Draw(image)
@@ -167,12 +164,12 @@ class CtaTrainTracker:
 
         return image
 
-    def draw_bottom_bar(self):
-        image_bottom_bar = Image.new('RGB', (64,12))
-        draw = ImageDraw.Draw(image_bottom_bar)
-        draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
-
-        self.matrix.render()
-        print('ya it happened')
-
-        return image_bottom_bar
+    # def draw_bottom_bar(self):
+    #     image_bottom_bar = Image.new('RGB', (64,12))
+    #     draw = ImageDraw.Draw(image_bottom_bar)
+    #     draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
+    #
+    #     self.matrix.render()
+    #     print('ya it happened')
+    #
+    #     return image_bottom_bar
