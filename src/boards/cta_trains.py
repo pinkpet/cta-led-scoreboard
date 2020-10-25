@@ -82,7 +82,13 @@ class CtaTrainTracker:
                 image_train_top_two = self.draw_train_times(
                     trains,
                     0,
-                    3
+                    2
+                )
+
+                image_train_bottom_rest = self.draw_train_times(
+                    trains,
+                    2,
+                    len(trains)
                 )
 
                 # image_train_bottom_rest = self.draw_train_times(
