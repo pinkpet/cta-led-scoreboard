@@ -116,7 +116,7 @@ class CtaTrainTracker:
 
             self.matrix.render()
 
-            self.sleepEvent.wait(1)
+            self.sleepEvent.wait(3)
 
             # Move the image up until we hit the bottom.
             train_scroller_height = len(trains) * 7
@@ -127,7 +127,7 @@ class CtaTrainTracker:
 
                 self.matrix.draw_image_layout(
                 self.layout.info,
-                image,
+                image_train_text,
                 (0, i)
                 )
 
@@ -160,4 +160,4 @@ class CtaTrainTracker:
 
         print(cta_data)
 
-        return image
+        return image_train_text
