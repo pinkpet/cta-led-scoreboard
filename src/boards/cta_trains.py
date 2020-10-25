@@ -136,7 +136,7 @@ class CtaTrainTracker:
             self.sleepEvent.wait(3)
 
             # Move the image up until we hit the bottom.
-            train_scroller_height = (len(trains) - 2) * 7
+            train_scroller_height = (len(trains) - 3) * 7
             while i > -(train_scroller_height):
                 i -= 1
 
