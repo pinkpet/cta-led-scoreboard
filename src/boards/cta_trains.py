@@ -150,7 +150,7 @@ class CtaTrainTracker:
 
         pos = 0
         for train in cta_data:
-            draw.text((1, pos), "{}  {}".format(train['Dest']), fill=(255, 255, 255), font=self.font, align="right")
+            draw.text((1, pos), "{}".format(train['Dest']), fill=(255, 255, 255), font=self.font, align="right")
             draw.text((40,pos), "{}".format(train['Time']), fill=(255, 255, 255), font=self.font, align="center")
             pos += 7
 
