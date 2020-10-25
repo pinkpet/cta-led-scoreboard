@@ -148,17 +148,16 @@ class CtaTrainTracker:
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
-    def draw_train_times(self, cta_data, im_height):
-        image = Image.new('RGB', (64, im_height))
+    def draw_train_times(self, cta_data, im_height, train_start, train_max):
+        image = Image.new('RGB', (64, train_max * 7))
         draw = ImageDraw.Draw(image)
 
         pos = 0
-        train_max = 2
-        train_count = 0
-        while train_count < train_max:
-            train_count += 1
-            draw.text((1, pos), "{}".format(cta_data[train_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.text((40,pos), "{}".format(cta_data[train_count]['Time']), fill=(255, 255, 255), font=self.font, align="center")
+        loop_count = 0
+        while pos < train_max * 7:
+            loop_count += 1
+            draw.text((1, pos), "{}".format(cta_data[loop_count + train_start]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
+            draw.text((40,pos), "{}".format(cta_data[loop_count + train_start]['Time']), fill=(255, 255, 255), font=self.font, align="center")
             pos += 7
 
         print(cta_data)
