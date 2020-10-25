@@ -137,21 +137,20 @@ class CtaTrainTracker:
 
             # Move the image up until we hit the bottom.
             train_scroller_height = (len(trains) - 2) * 7
-            while i > -(train_scroller_height - 14):
+            while i > -(train_scroller_height):
                 i -= 1
 
                 self.matrix.clear()
-
-                # self.matrix.draw_image_layout(
-                #     self.layout.info,
-                #     image_train_top_two,
-                #     (0, i)
-                # )
 
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_train_bottom_rest,
                     (0, i + 14)
+                )
+
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_train_top_two
                 )
 
                 self.matrix.draw_image_layout(
