@@ -115,7 +115,7 @@ class CtaTrainTracker:
                 #emoji test
                 image_weather = Image.new('RGB', (20, 10))
                 draw = ImageDraw.Draw(image_weather)
-                draw.text((1, pos), "Sup", fill=(255, 255, 255), font=self.font, align="right")
+                draw.text((0,0), "Sup", fill=(255, 255, 255), font=self.font, align="right")
                 print('\U0001f638')
 
                 self.matrix.clear()
