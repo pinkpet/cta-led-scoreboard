@@ -68,14 +68,6 @@ class CtaTrainTracker:
             prev_game = team.previous_game
             next_game = team.next_game
 
-            logo_renderer = LogoRenderer(
-                self.matrix,
-                self.data.config,
-                self.layout.logo,
-                team_data,
-                'team_summary'
-            )
-
             stats = team.stats
             im_height = 64
             team_abbrev = team.abbreviation
@@ -103,8 +95,6 @@ class CtaTrainTracker:
 
                 self.matrix.clear()
 
-                logo_renderer.render()
-
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image,
@@ -131,8 +121,6 @@ class CtaTrainTracker:
                 i -= 1
 
                 self.matrix.clear()
-
-                logo_renderer.render()
 
                 self.matrix.draw_image_layout(
                 self.layout.info,
