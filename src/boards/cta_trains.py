@@ -29,28 +29,27 @@ class CtaTrainTracker:
 
         self.sleepEvent = sleepEvent
         self.sleepEvent.clear()
-
+        trains = [
+            {
+                "Dest": "For. Park",
+                "Time": "2 mins"
+            },
+            {
+                "Dest": "O'Hare",
+                "Time": "4 mins"
+            },
+            {
+                "Dest": "UIC Hals.",
+                "Time": "6 mins"
+            },
+            {
+                "Dest": "Rosemont",
+                "Time": "9 mins"
+            }
+        ]
+        train_scroller_height = len(cta_data) * 7
     def render(self):
         for team_id in self.preferred_teams:
-
-            trains = [
-                {
-                    "Dest": "For. Park",
-                    "Time": "2 mins"
-                },
-                {
-                    "Dest": "O'Hare",
-                    "Time": "4 mins"
-                },
-                {
-                    "Dest": "UIC Hals.",
-                    "Time": "6 mins"
-                },
-                {
-                    "Dest": "Rosemont",
-                    "Time": "9 mins"
-                }
-            ]
 
 
             self.team_id = team_id
@@ -118,7 +117,7 @@ class CtaTrainTracker:
             self.sleepEvent.wait(1)
 
             # Move the image up until we hit the bottom.
-            train_scroller_height = len(cta_data) * 7
+
             while i > -(train_scroller_height):
                 i -= 1
 
