@@ -125,6 +125,12 @@ class CtaTrainTracker:
                     (0, 22)
                 )
 
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_train_top_two,
+                    (0, 24)
+                )
+
                 self.matrix.render()
 
             self.matrix.render()
