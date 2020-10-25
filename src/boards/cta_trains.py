@@ -91,7 +91,10 @@ class CtaTrainTracker:
                     im_height
                 )
 
-                image_bottom_bar = self.draw_bottom_bar()
+                cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
+                self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
+                self.matrix.render()
+                self.sleepEvent.wait(10)
 
                 self.matrix.clear()
 
@@ -172,7 +175,7 @@ class CtaTrainTracker:
         cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
         self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
         self.matrix.render()
-        self.sleepEvent.wait(5)
+        self.sleepEvent.wait(3)
         print("Sleeping now...do you see the CTA?")
 
         self.matrix.render()
