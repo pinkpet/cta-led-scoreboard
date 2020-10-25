@@ -92,7 +92,7 @@ class CtaTrainTracker:
                 )
 
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
-                self.matrix.draw_image((0, 0), cta_logo_image, "top-left")
+                self.matrix.draw_image((-10, 0), cta_logo_image, "top-left")
                 self.matrix.render()
                 self.sleepEvent.wait(10)
 
