@@ -87,7 +87,7 @@ class CtaTrainTracker:
                 image_train_bottom_rest = self.draw_train_times(
                     trains,
                     2,
-                    10
+                    len(trains) - 2
                 )
 
                 #cta SCROLLER!
