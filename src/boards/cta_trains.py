@@ -88,10 +88,11 @@ class CtaTrainTracker:
 
                 cta_xpos = 0
                 while cta_xpos < cta_img_width:
+                    self.matrix.clear()
                     self.matrix.draw_image((cta_xpos, 0), cta_logo_image, "top-left")
                     self.matrix.render()
 
-                self.sleepEvent.wait(10)
+                self.sleepEvent.wait(3)
 
                 # bottom bar rectangle --TO DO add weather, time
                 image_bottom_bar = Image.new('RGB', (64,12))
