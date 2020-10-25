@@ -115,7 +115,7 @@ class CtaTrainTracker:
                 #emoji test
                 image_weather = Image.new('RGB', (20, 10))
                 draw = ImageDraw.Draw(image_weather)
-                draw.text((0,0), "Sup", fill=(255, 255, 255), font=self.font, align="right")
+                draw.text((0,0), "\U0001f638", fill=(255, 255, 255), font=self.font, align="right")
                 print('\U0001f638')
 
                 self.matrix.clear()
@@ -135,6 +135,12 @@ class CtaTrainTracker:
                     self.layout.info,
                     image_bottom_bar,
                     (0, 22)
+                )
+
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_bottom_bar,
+                    (20, 23)
                 )
 
                 self.matrix.render()
