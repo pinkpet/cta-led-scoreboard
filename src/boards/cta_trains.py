@@ -80,7 +80,8 @@ class CtaTrainTracker:
             if not self.sleepEvent.is_set():
                 image_train_top_two = self.draw_train_times(
                     trains,
-                    len(trains) * 7
+                    0,
+                    2
                 )
 
                 #cta SCROLLER!
@@ -148,7 +149,7 @@ class CtaTrainTracker:
             # Show the bottom before we change to the next table.
             self.sleepEvent.wait(5)
 
-    def draw_train_times(self, cta_data, im_height, train_start, train_max):
+    def draw_train_times(self, cta_data, train_start, train_max):
         image = Image.new('RGB', (64, train_max * 7))
         draw = ImageDraw.Draw(image)
 
