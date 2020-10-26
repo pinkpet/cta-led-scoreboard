@@ -79,6 +79,11 @@ class CtaTrainTracker:
             print("Here comes the data print!")
             print(self.data.wx_current)
             print(type(self.data.wx_current))
+            try:
+                print(self.data.wx_current[3])
+                print(self.data.wx_current[1])
+            except:
+                print("Whoops not ready yet")
             # print(self.data.wx_current[1])
             # print(self.data.wx_current[2])
             # print(self.data.wx_current[3])
@@ -207,7 +212,6 @@ class CtaTrainTracker:
             draw.text((1, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
             draw.text((40,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="center")
             pos += 7
-            print(str(loop_count)+" worked")
             loop_count += 1
         print(cta_data)
 
