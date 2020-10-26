@@ -2,7 +2,7 @@
 	"debug": true,
 	"live_mode": false,
 	"preferences": {
-		"time_format": "24h",
+		"time_format": "12h",
 		"end_of_day": "8:00",
 		"location": "Chicago, IL",
 		"live_game_refresh_rate": 30,
@@ -35,6 +35,7 @@
 		"post_game": [
 			"team_summary",
 			"cta_trains",
+			"wx_weather",
 			"standings",
 			"scoreticker",
 			"clock"
