@@ -79,6 +79,7 @@ class CtaTrainTracker:
             print("Here comes the data print!")
             print(self.data.wx_current)
             print(type(self.data.wx_current))
+            print(self.data.wx_current == True)
             try:
                 print(self.data.wx_current[3])
                 print(self.data.wx_current[1])
