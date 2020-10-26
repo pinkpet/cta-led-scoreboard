@@ -79,7 +79,7 @@
 		"weather": {
 			"enabled": true,
 			"view": "full",
-			"units": "metric",
+			"units": "imperial",
 			"duration": 5,
 			"data_feed": "EC",
 			"owm_apikey": "",
