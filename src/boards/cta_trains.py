@@ -193,6 +193,12 @@ class CtaTrainTracker:
                     (0, 22)
                 )
 
+                self.matrix.draw_image_layout(
+                    self.layout.info,
+                    image_weather,
+                    (30, 23)
+                )
+
                 self.matrix.render()
                 if self.data.network_issues:
                     self.matrix.network_issue_indicator()
