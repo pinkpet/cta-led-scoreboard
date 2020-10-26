@@ -75,6 +75,14 @@ class CtaTrainTracker:
             team_abbrev = team.abbreviation
             team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
 
+            # experimenting/poking around the data variable
+            print("Here comes the data print!")
+            print(self.data.wx_current)
+            print(self.data.wx_current[1])
+            print(self.data.wx_current[2])
+            print(self.data.wx_current[3])
+            print(self.data.wx_current[4])
+
             i = 0
 
             if not self.sleepEvent.is_set():
@@ -140,7 +148,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (20, 23)
+                    (30, 23)
                 )
 
                 self.matrix.render()
