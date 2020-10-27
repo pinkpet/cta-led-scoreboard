@@ -154,7 +154,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (20, 23)
+                    (23, 23)
                 )
 
                 self.matrix.render()
@@ -191,7 +191,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (30, 23)
+                    (23, 23)
                 )
 
                 self.matrix.render()
