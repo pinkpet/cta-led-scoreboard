@@ -149,3 +149,6 @@ src/nhl_api_testing.py
 
 # Extra Layout File
 config/layout/layout_128x64.json
+
+# CTA api key
+src/api/cta/cta_config.py
