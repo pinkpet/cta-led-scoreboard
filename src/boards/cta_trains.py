@@ -122,7 +122,7 @@ class CtaTrainTracker:
                 image_bottom_bar = Image.open(get_file('assets/images/cta_bottom_bar.png'))
 
                 #draw up the weather data
-                image_weather = Image.new('RGB', (30, 10), color = (0, 120, 193))
+                image_weather = Image.new('RGB', (40, 10), color = (0, 120, 193))
                 draw = ImageDraw.Draw(image_weather)
                 weather_text_font = ImageFont.truetype('assets/fonts/BMmini.TTF', 8)
                 weather_icons_font = ImageFont.truetype('assets/fonts/weathericons.ttf')
@@ -154,7 +154,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (25, 23)
+                    (20, 23)
                 )
 
                 self.matrix.render()
