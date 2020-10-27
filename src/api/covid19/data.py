@@ -30,11 +30,11 @@ class Data:
             self.country_data = data.json()
             self.countrydict = {}
             for country in self.country_data:
-                self.countrydict[country["country"]] = country 
+                self.countrydict[country["country"]] = country
         except requests.exceptions.RequestException as e:
             #raise ValueError(e)
             print(e)
-        try:    
+        try:
             data = requests.get(US_STATE_URL)
             data.raise_for_status()
             self.us_state = data.json()
@@ -44,13 +44,13 @@ class Data:
         except requests.exceptions.RequestException as e:
             print(e)
             #raise ValueError(e)
-        try:    
+        try:
             data = requests.get(CANADA_URL)
             data.raise_for_status()
             self.canada_prov = data.json()
             self.canada_prov_dict = {}
             for prov in self.canada_prov:
-                self.canada_prov_dict[prov["province"]] = prov            
+                self.canada_prov_dict[prov["province"]] = prov
         except requests.exceptions.RequestException as e:
             print(e)
             #raise ValueError(e)
