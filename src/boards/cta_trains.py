@@ -127,8 +127,8 @@ class CtaTrainTracker:
                 weather_text_font = ImageFont.truetype('assets/fonts/BMmini.TTF', 8)
                 weather_icons_font = ImageFont.truetype('assets/fonts/weathericons.ttf')
                 if(len(self.data.wx_current) > 0):
-                    draw.text((0, 0), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
-                    draw.text((20,-3), self.data.wx_current[1], fill=(255, 255, 255), font=weather_icons_font, align="right")
+                    draw.text((0, 1), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
+                    draw.text((25,-3), self.data.wx_current[1], fill=(255, 255, 255), font=weather_icons_font, align="right")
                 print('\U0001f638')
 
                 #here comes the main layout
@@ -154,7 +154,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (30, 23)
+                    (25, 23)
                 )
 
                 self.matrix.render()
