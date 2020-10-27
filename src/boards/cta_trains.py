@@ -110,7 +110,7 @@ class CtaTrainTracker:
                     self.matrix.clear()
                     self.matrix.draw_image((-cta_xpos, 0), cta_logo_image, "top-left")
                     self.matrix.render()
-                    self.sleepEvent.wait(0.05)
+                    self.sleepEvent.wait(0.02)
 
                 # bottom bar rectangle --TO DO add weather, time
 
@@ -124,7 +124,7 @@ class CtaTrainTracker:
                 #draw up the weather data
                 image_weather = Image.new('RGB', (30, 10), color = (0, 120, 193))
                 draw = ImageDraw.Draw(image_weather)
-                weather_text_font = ImageFont.truetype('assets/fonts/BMMini.TTF')
+                weather_text_font = ImageFont.truetype('assets/fonts/BMmini.TTF')
                 weather_icons_font = ImageFont.truetype('assets/fonts/weathericons.ttf')
                 if(len(self.data.wx_current) > 0):
                     draw.text((0,1), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
