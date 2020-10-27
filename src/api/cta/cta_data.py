@@ -3,7 +3,7 @@ import json
 import datetime
 import math
 
-import .cta_config
+from . import cta_config
 
 
 MAIN_URL = 'http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx'
