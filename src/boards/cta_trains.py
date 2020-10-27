@@ -79,16 +79,11 @@ class CtaTrainTracker:
             print("Here comes the data print!")
             print(self.data.wx_current)
             print(type(self.data.wx_current))
-            print(self.data.wx_current == True)
             try:
                 print(self.data.wx_current[3])
                 print(self.data.wx_current[1])
             except:
                 print("Whoops not ready yet")
-            # print(self.data.wx_current[1])
-            # print(self.data.wx_current[2])
-            # print(self.data.wx_current[3])
-            # print(self.data.wx_current[4])
 
             i = 0
 
@@ -115,7 +110,7 @@ class CtaTrainTracker:
                     self.matrix.clear()
                     self.matrix.draw_image((-cta_xpos, 0), cta_logo_image, "top-left")
                     self.matrix.render()
-                    self.sleepEvent.wait(0.02)
+                    self.sleepEvent.wait(0.05)
 
                 # bottom bar rectangle --TO DO add weather, time
 
@@ -127,12 +122,12 @@ class CtaTrainTracker:
                 image_bottom_bar = Image.open(get_file('assets/images/cta_bottom_bar.png'))
 
                 #draw up the weather data
-                #emoji test
                 image_weather = Image.new('RGB', (30, 10), color = (0, 120, 193))
                 draw = ImageDraw.Draw(image_weather)
+                weather_text_font = ImageFont.truetype('assets/fonts/BMMini.TTF')
                 weather_icons_font = ImageFont.truetype('assets/fonts/weathericons.ttf')
                 if(len(self.data.wx_current) > 0):
-                    draw.text((0,1), self.data.wx_current[3], fill=(255, 255, 255), font=self.font, align="right")
+                    draw.text((0,1), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
                     draw.text((20,-3), self.data.wx_current[1], fill=(255, 255, 255), font=weather_icons_font, align="right")
                 print('\U0001f638')
 
@@ -166,7 +161,7 @@ class CtaTrainTracker:
 
             self.matrix.render()
 
-            self.sleepEvent.wait(3)
+            self.sleepEvent.wait(6)
 
             # Move the image up until we hit the bottom.
             train_scroller_height = (len(trains) - 3) * 7
@@ -211,7 +206,7 @@ class CtaTrainTracker:
                     self.sleepEvent.wait(0.3)
 
             # Show the bottom before we change to the next table.
-            self.sleepEvent.wait(5)
+            self.sleepEvent.wait(8)
 
     def draw_train_times(self, cta_data, train_start, train_max):
         image = Image.new('RGB', (64, train_max * 7))
