@@ -124,10 +124,10 @@ class CtaTrainTracker:
                 #draw up the weather data
                 image_weather = Image.new('RGB', (30, 10), color = (0, 120, 193))
                 draw = ImageDraw.Draw(image_weather)
-                weather_text_font = ImageFont.truetype('assets/fonts/mini_pixel-7.ttf')
+                weather_text_font = ImageFont.truetype('assets/fonts/mini_pixel-7.ttf', 6)
                 weather_icons_font = ImageFont.truetype('assets/fonts/weathericons.ttf')
                 if(len(self.data.wx_current) > 0):
-                    draw.text((0, -1), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
+                    draw.text((0, -2), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
                     draw.text((20,-3), self.data.wx_current[1], fill=(255, 255, 255), font=weather_icons_font, align="right")
                 print('\U0001f638')
 
