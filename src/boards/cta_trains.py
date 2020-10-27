@@ -9,7 +9,6 @@ from data.scoreboard import Scoreboard
 from data.team import Team
 from time import sleep
 from utils import convert_date_format, get_file
-from renderer.logos import LogoRenderer
 
 class CtaTrainTracker:
     def __init__(self, data, matrix,sleepEvent):
@@ -19,6 +18,7 @@ class CtaTrainTracker:
                 and then taking that info here would make sense
         '''
         self.data = data
+        self.data.cta_trains.get_trains()
         self.teams_info = data.teams_info
         self.preferred_teams = data.pref_teams
         self.matrix = matrix
@@ -32,7 +32,8 @@ class CtaTrainTracker:
 
     def render(self):
         for team_id in self.preferred_teams:
-
+            print("HERE:")
+            print(type(self.data.cta_trains))
             trains = [
                 {
                     "Dest": "For. Park",
@@ -101,6 +102,7 @@ class CtaTrainTracker:
                     len(trains)
                 )
 
+
                 #cta SCROLLER!
                 cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
@@ -154,14 +156,14 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (23, 23)
+                    (24, 23)
                 )
 
                 self.matrix.render()
 
             self.matrix.render()
 
-            self.sleepEvent.wait(6)
+            self.sleepEvent.wait(9)
 
             # Move the image up until we hit the bottom.
             train_scroller_height = (len(trains) - 3) * 7
@@ -191,7 +193,7 @@ class CtaTrainTracker:
                 self.matrix.draw_image_layout(
                     self.layout.info,
                     image_weather,
-                    (23, 23)
+                    (24, 23)
                 )
 
                 self.matrix.render()
@@ -206,7 +208,7 @@ class CtaTrainTracker:
                     self.sleepEvent.wait(0.3)
 
             # Show the bottom before we change to the next table.
-            self.sleepEvent.wait(8)
+            self.sleepEvent.wait(9)
 
     def draw_train_times(self, cta_data, train_start, train_max):
         image = Image.new('RGB', (64, train_max * 7))

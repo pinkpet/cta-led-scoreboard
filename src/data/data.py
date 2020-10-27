@@ -9,6 +9,7 @@ from time import sleep
 import debug
 import nhl_api
 from api.covid19.data import Data as covid19_data
+from api.cta.cta_data import TrainTracker as traintracker
 from data.status import Status
 from utils import get_lat_lng
 
@@ -76,7 +77,7 @@ class Data:
         self.latlng = get_lat_lng(config.location)
         # Test for alerts
         #self.latlng = [32.653,-83.7596]
-        
+
         # Flag for if pushbutton has triggered
         self.pb_trigger = False
 
@@ -94,12 +95,12 @@ class Data:
         self.wx_curr_precip = []
         # Weather Alert Info
         self.wx_alerts = []
-        self.wx_alert_interrupt = False 
+        self.wx_alert_interrupt = False
 
         # For update checker, True means new update available from github
         self.newUpdate = False
         self.UpdateRepo = "riffnshred/nhl-led-scoreboard"
-        
+
 
         # Flag to determine when to refresh data
         self.needs_refresh = True
@@ -152,6 +153,8 @@ class Data:
 
         # Get Covid 19 Data
         self.covid19 = covid19_data()
+
+        self.cta_trains = traintracker()
 
     #
     # Date
@@ -279,7 +282,7 @@ class Data:
         for game in self.pref_games:
             if game.status != "Final":
                 return
-            
+
         self.all_pref_games_final = True
 
 
@@ -416,7 +419,7 @@ class Data:
                     if self.current_round_name == "Stanley Cup Qualifier":
                         self.current_round_name = "Qualifier"
                     debug.info("defaultround number is : {}".format(self.playoffs.default_round))
-                
+
                 try:
                     # Grab the series of the current round of playoff.
                     self.series = self.current_round.series
@@ -429,7 +432,7 @@ class Data:
                         self.series = self.pref_series
                 except AttributeError:
                     debug.error("The {} Season playoff has to started yet or unavailable".format(self.playoffs.season))
-                
+
                 break
 
             except ValueError as error_message:
@@ -438,13 +441,13 @@ class Data:
                 debug.error(error_message)
                 attempts_remaining -= 1
                 sleep(NETWORK_RETRY_SLEEP_TIME)
-                
+
     def series_by_conference():
         """
             TODO:reorganize the list of series by conference and return the list
         """
         pass
-                
+
     #
     # Offdays
 
@@ -484,7 +487,6 @@ class Data:
 
         # Update standings
         self.refresh_standings()
-        
+
         # Update Playoff data
         self.refresh_playoff()
-
