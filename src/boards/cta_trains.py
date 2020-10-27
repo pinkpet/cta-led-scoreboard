@@ -33,7 +33,7 @@ class CtaTrainTracker:
     def render(self):
         for team_id in self.preferred_teams:
             print("HERE:")
-            print(self.data.cta_trains['ctatt']['eta'])
+            print(self.data.cta_trains.traintracker_data)
             trains = [
                 {
                     "Dest": "For. Park",
