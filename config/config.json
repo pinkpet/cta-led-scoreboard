@@ -18,11 +18,7 @@
 
 	"states":{
 		"off_day": [
-			"cta_trains",
-			"clock",
-			"scoreticker",
-			"standings",
-			"wxweather"
+			"cta_trains"
 		],
 		"scheduled": [
 			"covid_19",
