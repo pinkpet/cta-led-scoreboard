@@ -1,4 +1,4 @@
-"""
+@"""
     Show a summary of the favorite team. (previous game, next game, stats,)
 
 """
@@ -131,7 +131,7 @@ class CtaTrainTracker:
 
 
                 #cta SCROLLER!
-                cta_logo_image = Image.open(get_file('assets/images/quad-ctas.png'))
+                cta_logo_image = Image.open(get_file('assets/images/cta/cta-11.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
                 cta_xpos = 0
                 while cta_xpos < cta_img_width:
