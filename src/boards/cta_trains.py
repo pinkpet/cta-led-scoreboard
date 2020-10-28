@@ -47,50 +47,27 @@ class CtaTrainTracker:
 
             trains = []
 
-            #needs a try here in case the data isn't loading
-            for train in self.data.cta_trains.traintracker_data['ctatt']['eta']:
-                dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
-                minsuntil =  dtarrival - datetime.datetime.now()
-                dest = train['destNm']
+            try:
+                for train in self.data.cta_trains.traintracker_data['ctatt']['eta']:
+                    dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
+                    minsuntil =  dtarrival - datetime.datetime.now()
+                    dest = train['destNm']
 
-                try:
-                    dest = stations[dest]
-                except:
-                    dest = dest
+                    try:
+                        dest = stations[dest]
+                    except:
+                        dest = dest
 
+                    trains.append({
+                        "Dest": dest,
+                        "Time": str(round(minsuntil.seconds/60)) + " min"
+                    })
+                print(trains)
+            except:
                 trains.append({
-                    "Dest": dest,
-                    "Time": str(round(minsuntil.seconds/60)) + " min"
+                    "Dest": "No",
+                    "Time": "Data"
                 })
-            print(trains)
-
-        # for train in traintracker_data['ctatt']['eta']:
-        #     dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
-        #     minsuntil =  dtarrival - datetime.datetime.now()
-        #     print(train['rt'] + ' ' + train['destNm'] + ' ' + str(round(minsuntil.seconds/60)) + " mins")
-
-            # trains = [
-            #     {
-            #         "Dest": "For. Park",
-            #         "Time": "2 mins"
-            #     },
-            #     {
-            #         "Dest": "O'Hare",
-            #         "Time": "4 mins"
-            #     },
-            #     {
-            #         "Dest": "UIC Hals.",
-            #         "Time": "6 mins"
-            #     },
-            #     {
-            #         "Dest": "Rosemont",
-            #         "Time": "9 mins"
-            #     },
-            #     {
-            #         "Dest": "For. Park",
-            #         "Time": "18 mins"
-            #     }
-            # ]
 
 
             self.team_id = team_id
@@ -251,6 +228,7 @@ class CtaTrainTracker:
             if(len(cta_data) > 0):
                 draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
                 draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
+                #if done for lines other than the blue line, then create a dictionary with all the line names and their corresponding rgb values, then use the cta data feed to populate it.
                 draw.rectangle((0, pos + 1, 1, pos + 5), fill = (0, 157, 220))
             pos += 7
             loop_count += 1
