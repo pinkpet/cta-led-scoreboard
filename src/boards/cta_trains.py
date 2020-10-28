@@ -5,6 +5,7 @@
 from PIL import Image, ImageFont, ImageDraw, ImageOps
 from rgbmatrix import graphics
 import nhl_api
+import datetime
 from data.scoreboard import Scoreboard
 from data.team import Team
 from time import sleep
@@ -46,6 +47,8 @@ class CtaTrainTracker:
 
             #needs a try here in case the data isn't loading
             for train in self.data.cta_trains.traintracker_data['ctatt']['eta']:
+                dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
+                minsuntil =  dtarrival - datetime.datetime.now()
                 trains.append({
                     "Dest": train['rt'],
                     "Time": str(round(minsuntil.second/60))
