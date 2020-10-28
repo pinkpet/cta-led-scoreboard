@@ -59,7 +59,7 @@ class CtaTrainTracker:
 
                 trains.append({
                     "Dest": dest,
-                    "Time": str(round(minsuntil.seconds/60)) + " mins"
+                    "Time": str(round(minsuntil.seconds/60)) + " min"
                 })
             print(trains)
 
