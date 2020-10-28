@@ -139,7 +139,7 @@ class CtaTrainTracker:
                     self.matrix.clear()
                     self.matrix.draw_image((-cta_xpos, 0), cta_logo_image, "top-left")
                     self.matrix.render()
-                    self.sleepEvent.wait(0.02)
+                    self.sleepEvent.wait(0.05)
 
                 # bottom bar rectangle --TO DO add weather, time
 
