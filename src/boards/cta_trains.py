@@ -1,7 +1,7 @@
-@"""
-    Show a summary of the favorite team. (previous game, next game, stats,)
-
-"""
+# @"""
+#     Show a summary of the favorite team. (previous game, next game, stats,)
+#
+# """
 from PIL import Image, ImageFont, ImageDraw, ImageOps
 from rgbmatrix import graphics
 import nhl_api
