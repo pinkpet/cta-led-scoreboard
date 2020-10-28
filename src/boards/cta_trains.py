@@ -51,7 +51,7 @@ class CtaTrainTracker:
                 minsuntil =  dtarrival - datetime.datetime.now()
                 trains.append({
                     "Dest": train['rt'],
-                    "Time": str(round(minsuntil.second/60))
+                    "Time": str(round(minsuntil.seconds/60))
                 })
             print(trains)
 
