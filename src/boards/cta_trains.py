@@ -246,7 +246,7 @@ class CtaTrainTracker:
         while loop_count < train_max:
             draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
             draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.rectangle(((0, pos + 1), (0, 0)), fill = (0, 157, 220))
+            draw.rectangle((0, 1, 4, 2), fill = (0, 157, 220))
             pos += 7
             loop_count += 1
         print(cta_data)
