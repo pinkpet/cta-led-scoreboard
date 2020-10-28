@@ -36,7 +36,6 @@ class CtaTrainTracker:
             print("HERE:")
             print(self.data.cta_trains.traintracker_data)
 
-            #Needs a try here too
             stations = {
                 "Forest Park": "For. Park",
                 "O'Hare": "O'Hare",
@@ -111,14 +110,8 @@ class CtaTrainTracker:
             team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
 
             # experimenting/poking around the data variable
-            print("Here comes the data print!")
+            print("Here comes the weather data print!")
             print(self.data.wx_current)
-            print(type(self.data.wx_current))
-            try:
-                print(self.data.wx_current[3])
-                print(self.data.wx_current[1])
-            except:
-                print("Whoops not ready yet")
 
             i = 0
 
@@ -251,8 +244,8 @@ class CtaTrainTracker:
         pos = 0
         loop_count = 0 + train_start
         while loop_count < train_max:
-            draw.text((1, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.text((40,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="center")
+            draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
+            draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
             pos += 7
             loop_count += 1
         print(cta_data)
