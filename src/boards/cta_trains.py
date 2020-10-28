@@ -36,10 +36,10 @@ class CtaTrainTracker:
             print(self.data.cta_trains.traintracker_data)
 
             stations = {
-                "Forest Park" = "For. Park",
-                "O'Hare" = "O'Hare",
-                "UIC Halsted" = "UIC Hals.",
-                "Rosemont" = "Rosemont"
+                "Forest Park": "For. Park",
+                "O'Hare": "O'Hare",
+                "UIC Halsted": "UIC Hals.",
+                "Rosemont": "Rosemont"
             }
 
             trains = []
