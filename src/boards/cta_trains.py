@@ -34,28 +34,51 @@ class CtaTrainTracker:
         for team_id in self.preferred_teams:
             print("HERE:")
             print(self.data.cta_trains.traintracker_data)
-            trains = [
-                {
-                    "Dest": "For. Park",
-                    "Time": "2 mins"
-                },
-                {
-                    "Dest": "O'Hare",
-                    "Time": "4 mins"
-                },
-                {
-                    "Dest": "UIC Hals.",
-                    "Time": "6 mins"
-                },
-                {
-                    "Dest": "Rosemont",
-                    "Time": "9 mins"
-                },
-                {
-                    "Dest": "For. Park",
-                    "Time": "18 mins"
-                }
-            ]
+
+            stations = {
+                "Forest Park" = "For. Park",
+                "O'Hare" = "O'Hare",
+                "UIC Halsted" = "UIC Hals.",
+                "Rosemont" = "Rosemont"
+            }
+
+            trains = []
+
+            #needs a try here in case the data isn't loading
+            for train in self.data.cta_trains.traintracker_data['ctatt']['eta']:
+                trains.append({
+                    "Dest": train['rt'],
+                    "Time": str(round(minsuntil.second/60))
+                })
+            print(trains)
+
+        # for train in traintracker_data['ctatt']['eta']:
+        #     dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
+        #     minsuntil =  dtarrival - datetime.datetime.now()
+        #     print(train['rt'] + ' ' + train['destNm'] + ' ' + str(round(minsuntil.seconds/60)) + " mins")
+
+            # trains = [
+            #     {
+            #         "Dest": "For. Park",
+            #         "Time": "2 mins"
+            #     },
+            #     {
+            #         "Dest": "O'Hare",
+            #         "Time": "4 mins"
+            #     },
+            #     {
+            #         "Dest": "UIC Hals.",
+            #         "Time": "6 mins"
+            #     },
+            #     {
+            #         "Dest": "Rosemont",
+            #         "Time": "9 mins"
+            #     },
+            #     {
+            #         "Dest": "For. Park",
+            #         "Time": "18 mins"
+            #     }
+            # ]
 
 
             self.team_id = team_id
