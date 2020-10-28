@@ -6,6 +6,8 @@ from PIL import Image, ImageFont, ImageDraw, ImageOps
 from rgbmatrix import graphics
 import nhl_api
 import datetime
+import random
+
 from data.scoreboard import Scoreboard
 from data.team import Team
 from time import sleep
@@ -131,7 +133,8 @@ class CtaTrainTracker:
 
 
                 #cta SCROLLER!
-                cta_logo_image = Image.open(get_file('assets/images/cta/cta-11.png'))
+                png_number = random.randint(1,12)
+                cta_logo_image = Image.open(get_file('assets/images/cta/cta-' + str(png_number) + '.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
                 cta_xpos = 0
                 while cta_xpos < cta_img_width - 64:
