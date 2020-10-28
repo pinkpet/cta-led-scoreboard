@@ -36,6 +36,7 @@ class CtaTrainTracker:
             print("HERE:")
             print(self.data.cta_trains.traintracker_data)
 
+            #Needs a try here too
             stations = {
                 "Forest Park": "For. Park",
                 "O'Hare": "O'Hare",
@@ -49,8 +50,15 @@ class CtaTrainTracker:
             for train in self.data.cta_trains.traintracker_data['ctatt']['eta']:
                 dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
                 minsuntil =  dtarrival - datetime.datetime.now()
+                dest = train['destNm']
+
+                try:
+                    dest = stations[dest]
+                except:
+                    dest = dest
+
                 trains.append({
-                    "Dest": train['destNm'],
+                    "Dest": dest,
                     "Time": str(round(minsuntil.seconds/60)) + " mins"
                 })
             print(trains)
