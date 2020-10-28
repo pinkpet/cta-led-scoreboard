@@ -50,8 +50,8 @@ class CtaTrainTracker:
                 dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
                 minsuntil =  dtarrival - datetime.datetime.now()
                 trains.append({
-                    "Dest": train['rt'],
-                    "Time": str(round(minsuntil.seconds/60))
+                    "Dest": train['destNm'],
+                    "Time": str(round(minsuntil.seconds/60) + "mins")
                 })
             print(trains)
 
