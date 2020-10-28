@@ -132,7 +132,8 @@ class CtaTrainTracker:
                 )
 
 
-                #cta SCROLLER!
+                #image SCROLLER!
+                #in the future, this would be good to do programmatically (that is, use os to find the number of files in the folder, and then go from there.)
                 png_number = random.randint(1,12)
                 cta_logo_image = Image.open(get_file('assets/images/cta/cta-' + str(png_number) + '.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
@@ -149,11 +150,6 @@ class CtaTrainTracker:
                     self.sleepEvent.wait(0.05)
                 self.sleepEvent.wait(2)
 
-                # bottom bar rectangle --TO DO add weather, time
-
-                # image_bottom_bar = Image.new('RGB', (64,12))
-                # draw = ImageDraw.Draw(image_bottom_bar)
-                # draw.rectangle([0, 0, 64, 30], fill=(0, 157, 220))
 
                 #load fancy bottom bar png
                 image_bottom_bar = Image.open(get_file('assets/images/cta_bottom_bar.png'))
@@ -252,9 +248,10 @@ class CtaTrainTracker:
         pos = 0
         loop_count = 0 + train_start
         while loop_count < train_max:
-            draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
-            draw.rectangle((0, pos + 1, 1, pos + 5), fill = (0, 157, 220))
+            if(len(cta_data) > 0)
+                draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
+                draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
+                draw.rectangle((0, pos + 1, 1, pos + 5), fill = (0, 157, 220))
             pos += 7
             loop_count += 1
         print(cta_data)
