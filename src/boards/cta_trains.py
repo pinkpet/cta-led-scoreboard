@@ -248,7 +248,7 @@ class CtaTrainTracker:
         pos = 0
         loop_count = 0 + train_start
         while loop_count < train_max:
-            if(len(cta_data) > 0)
+            if(len(cta_data) > 0):
                 draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
                 draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
                 draw.rectangle((0, pos + 1, 1, pos + 5), fill = (0, 157, 220))
