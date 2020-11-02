@@ -102,6 +102,8 @@ class CtaTrainTracker:
                     2
                 )
 
+                # TO DO: What if there are less than 3 trains? Need a way to get the train data and fail gracefully if there are not a lot of trains there.
+
                 image_train_bottom_rest = self.draw_train_times(
                     trains,
                     2,
@@ -226,6 +228,8 @@ class CtaTrainTracker:
         loop_count = 0 + train_start
         while loop_count < train_max:
             if(len(cta_data) > 0):
+                #index error here...please fix
+                print(len(cta_data))
                 draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
                 draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
                 #if done for lines other than the blue line, then create a dictionary with all the line names and their corresponding rgb values, then use the cta data feed to populate it.
