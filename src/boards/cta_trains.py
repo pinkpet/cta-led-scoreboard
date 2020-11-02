@@ -226,6 +226,7 @@ class CtaTrainTracker:
 
         pos = 0
         loop_count = 0 + train_start
+        print(cta_data)
         while loop_count < train_max:
             if(len(cta_data) > 0):
                 #index error here...please fix
