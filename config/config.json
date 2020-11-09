@@ -94,7 +94,7 @@
 	},
 	"sbio": {
 		"dimmer": {
-			"enabled": false,
+			"enabled": true,
 			"source": "software",
 			"frequency": 5,
 			"light_level_lux": 400,
