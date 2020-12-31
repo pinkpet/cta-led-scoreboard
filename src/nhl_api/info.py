@@ -21,7 +21,6 @@ def team_info():
         short_name = team['shortName']
         division_id = team['division']['id']
         division_name = team['division']['name']
-        division_abbrev = team['division']['abbreviation']
         conference_id = team['conference']['id']
         conference_name = team['conference']['name']
         official_site_url = team['officialSiteUrl']
@@ -55,7 +54,6 @@ def team_info():
             'short_name': short_name,
             'division_id': division_id,
             'division_name': division_name,
-            'division_abbrev': division_abbrev,
             'conference_id': conference_id,
             'conference_name': conference_name,
             'official_site_url': official_site_url,
@@ -94,7 +92,7 @@ def playoff_info(season):
     output = {'season': season}
     if parsed["rounds"]:
         playoff_rounds = parsed["rounds"]
-        
+
         try:
             default_round = parsed["defaultRound"]
             output['default_round'] = default_round
@@ -102,11 +100,11 @@ def playoff_info(season):
             debug.error("No default round for {} Playoff.".format(season))
             default_round = 0
             output['default_round'] = default_round
-        
+
         rounds = {}
         for r in range(len(playoff_rounds)):
             rounds[str(playoff_rounds[r]["number"])] = MultiLevelObject(playoff_rounds[r])
-        
+
         output['rounds'] = rounds
     else:
         debug.error("No data for {} Playoff".format(season))
