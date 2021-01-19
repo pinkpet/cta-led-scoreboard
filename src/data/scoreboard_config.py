@@ -1,7 +1,7 @@
 from utils import get_file
 from data.layout import Layout
 from data.colors import Color
-from config.main import Config  
+from config.main import Config
 from nhl_setup.validate_json import validateConf
 import json
 import os
@@ -24,7 +24,7 @@ class ScoreboardConfig:
         self.live_game_refresh_rate = json["preferences"]["live_game_refresh_rate"]
         self.preferred_teams = json["preferences"]["teams"]
         self.sog_display_frequency = json["preferences"]["sog_display_frequency"]
-        
+
 
         # Goal animation
         self.goal_anim_pref_team_only = json["goal_animations"]["pref_team_only"]
@@ -69,7 +69,7 @@ class ScoreboardConfig:
         self.wxalert_alert_feed = json["boards"]["wxalert"]["alert_feed"]
         #Allow the weather thread to interrupt the current flow of the display loop and show an alert if it shows up
         #Similar to how a pushbutton interrupts the flow
-        self.wxalert_show_alerts = json["boards"]["wxalert"]["show_alerts"] 
+        self.wxalert_show_alerts = json["boards"]["wxalert"]["show_alerts"]
         # Display on top and bottom bar the severity (for US) and type
         self.wxalert_alert_title = json["boards"]["wxalert"]["alert_title"]
         # Display static alert or scrolling
@@ -79,7 +79,7 @@ class ScoreboardConfig:
         # Show any alerts on clock
         self.wxalert_show_on_clock = json["boards"]["wxalert"]["show_on_clock"]
         self.wxalert_update_freq = json["boards"]["wxalert"]["update_freq"]
-        
+
 
 
         # States
@@ -94,10 +94,6 @@ class ScoreboardConfig:
         # Scoreticker
         self.preferred_teams_only = json["boards"]["scoreticker"]["preferred_teams_only"]
         self.scoreticker_rotation_rate = json["boards"]["scoreticker"]["rotation_rate"]
-
-        # Seriesticker
-        self.seriesticker_preferred_teams_only = json["boards"]["seriesticker"]["preferred_teams_only"]
-        self.seriesticker_rotation_rate = json["boards"]["seriesticker"]["rotation_rate"]
 
         # Standings
         self.preferred_standings_only = json["boards"]["standings"]["preferred_standings_only"]
@@ -124,7 +120,7 @@ class ScoreboardConfig:
         # Fonts
         self.layout = Layout()
 
-        # load colors 
+        # load colors
         self.team_colors = Color(self.__get_config(
             "colors/teams"
         ))
@@ -157,7 +153,7 @@ class ScoreboardConfig:
             else:
                 debug.error("Invalid {} config file. Make sure {} exists in config/".format(base_filename, base_filename))
             sys.exit(1)
-        
+
         if base_filename == "config":
             # Validate against the config.json
             debug.info("Now validating config.json.....")
@@ -185,4 +181,3 @@ class ScoreboardConfig:
             time_format = "%H:%M"
 
         return time_format
-

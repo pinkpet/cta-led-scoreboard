@@ -148,9 +148,6 @@ class Data:
         # Get refresh standings
         self.refresh_standings()
 
-        # Fetch the playoff data
-        self.refresh_playoff()
-
         # Get Covid 19 Data
         self.covid19 = covid19_data()
 
@@ -405,49 +402,6 @@ class Data:
             return []
 
     #
-    # Playoffs
-    def refresh_playoff(self):
-        attempts_remaining = 5
-        while attempts_remaining > 0:
-            try:
-                # Get the plaoffs data from the nhl api
-                self.playoffs = nhl_api.playoff(self.status.season_id)
-                # Check if there is any rounds avaialable and grab the most recent one available.
-                if self.playoffs.rounds:
-                    self.current_round = self.playoffs.rounds[str(self.playoffs.default_round)]
-                    self.current_round_name = self.current_round.names.name
-                    if self.current_round_name == "Stanley Cup Qualifier":
-                        self.current_round_name = "Qualifier"
-                    debug.info("defaultround number is : {}".format(self.playoffs.default_round))
-
-                try:
-                    # Grab the series of the current round of playoff.
-                    self.series = self.current_round.series
-
-                    # Check if prefered team are part of the current round of playoff
-                    self.pref_series = prioritize_pref_series(filter_list_of_series(self.series, self.pref_teams), self.pref_teams)
-
-                    # If the user as set to show his favorite teams in the seriesticker
-                    if self.config.seriesticker_preferred_teams_only and self.pref_series:
-                        self.series = self.pref_series
-                except AttributeError:
-                    debug.error("The {} Season playoff has to started yet or unavailable".format(self.playoffs.season))
-
-                break
-
-            except ValueError as error_message:
-                self.network_issues = True
-                debug.error("Failed to refresh the list of Series. {} attempt remaining.".format(attempts_remaining))
-                debug.error(error_message)
-                attempts_remaining -= 1
-                sleep(NETWORK_RETRY_SLEEP_TIME)
-
-    def series_by_conference():
-        """
-            TODO:reorganize the list of series by conference and return the list
-        """
-        pass
-
     #
     # Offdays
 
@@ -487,6 +441,3 @@ class Data:
 
         # Update standings
         self.refresh_standings()
-
-        # Update Playoff data
-        self.refresh_playoff()

@@ -21,7 +21,7 @@
 		"off_day": [
 			"covid_19",
 			"clock"
-			
+
 		],
 		"scheduled": [
 			"team_summary",
@@ -45,10 +45,6 @@
 			"preferred_teams_only": false,
 			"rotation_rate": 5
 		},
-                "seriesticker": {
-                        "preferred_teams_only": true,
-                        "rotation_rate": 5
-                },
 		"standings": {
 			"preferred_standings_only": true,
 			"standing_type": "wild_card",
@@ -92,7 +88,7 @@
             "scroll_alert": true,
             "alert_duration": 5,
 			"show_on_clock": true
-        }	
+        }
 	},
 	"sbio": {
 		"dimmer": {

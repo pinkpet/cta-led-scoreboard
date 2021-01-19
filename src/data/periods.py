@@ -16,13 +16,3 @@ class Periods:
             self.clock = period_info.currentPeriodTimeRemaining
         except AttributeError:
             self.clock = '00:00'
-        self.get_ordinal()
-
-    def get_ordinal(self):
-        if self._is_playoff():
-            self.ordinal = Periods.ORDINAL_PLAYOFF[self.number]
-        else:
-            self.ordinal = Periods.ORDINAL[self.number]
-
-    def _is_playoff(self):
-        return self.gameType is self.PLAYOFF

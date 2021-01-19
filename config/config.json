@@ -43,10 +43,6 @@
 			"preferred_teams_only": false,
 			"rotation_rate": 2
 		},
-                "seriesticker": {
-                        "preferred_teams_only": true,
-                        "rotation_rate": 2
-                },
 		"standings": {
 			"preferred_standings_only": true,
 			"standing_type": "wild_card",

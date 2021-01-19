@@ -78,7 +78,7 @@ def load_config(confdir,simple=False):
                     sys.exit(0)
             else:
                 fileindex += 1
-                
+
         return j
 
 def save_config(nhl_config,confdir):
@@ -107,7 +107,7 @@ def save_config(nhl_config,confdir):
 
 def get_default_value(def_config,def_key,def_type):
     if def_config:
-        res = functools.reduce(lambda val, key: val.get(key) if val else None, def_key, def_config) 
+        res = functools.reduce(lambda val, key: val.get(key) if val else None, def_key, def_config)
         if def_type == "int":
             return str(res)
         return res
@@ -128,7 +128,7 @@ def select_teams(qmark):
         }
     ]
     answer = prompt(team_select_answer)
-    
+
     return answer['team_select']
 
 def select_us_states(qmark):
@@ -142,7 +142,7 @@ def select_us_states(qmark):
         }
     ]
     answer = prompt(us_state_select_answer)
-    
+
     return answer['us_state_select']
 
 def select_countries(qmark):
@@ -156,7 +156,7 @@ def select_countries(qmark):
         }
     ]
     answer = prompt(country_select_answer)
-    
+
     return answer['country_select']
 
 def select_canada_prov(qmark):
@@ -170,7 +170,7 @@ def select_canada_prov(qmark):
         }
     ]
     answer = prompt(canada_prov_select_answer)
-    
+
     return answer['canada_prov_select']
 
 
@@ -185,11 +185,11 @@ def select_boards(qmark):
         }
     ]
     answer = prompt(board_select_answer)
-    
+
     return answer['board_select']
 
 def get_team(team_index,team_choices,pref_teams,qmark):
-    
+
     def_choices = TEAMS
 
     choices = []
@@ -200,7 +200,7 @@ def get_team(team_index,team_choices,pref_teams,qmark):
         if len(pref_teams) > 0:
             choices = [ele for ele in def_choices if ele not in pref_teams]
         choices = team_choices + choices
-    
+
     if len(pref_teams) > 0 and len(team_choices) == 0:
         # Remove anything all ready selected from the choices list
         choices = [ele for ele in def_choices if ele not in pref_teams]
@@ -226,8 +226,8 @@ def get_team(team_index,team_choices,pref_teams,qmark):
     return answers['team']
 
 def get_board(state,boardlist,qmark):
-    
-    message ='Select a board to display for ' + state 
+
+    message ='Select a board to display for ' + state
     states_prompt = [
         {
             'type': 'list',
@@ -241,7 +241,7 @@ def get_board(state,boardlist,qmark):
     return answers['board']
 
 def get_us_states(us_state_index,us_state_choices,pref_us_states,qmark):
-    
+
     def_choices = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District Of Columbia','Florida','Georgia','Guam',
     'Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota',
     'Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota',
@@ -256,7 +256,7 @@ def get_us_states(us_state_index,us_state_choices,pref_us_states,qmark):
         if len(pref_us_states) > 0:
             choices = [ele for ele in def_choices if ele not in pref_us_states]
         choices = us_state_choices + choices
-    
+
     if len(pref_us_states) > 0 and len(us_state_choices) == 0:
         # Remove anything all ready selected from the choices list
         choices = [ele for ele in def_choices if ele not in pref_us_states]
@@ -282,7 +282,7 @@ def get_us_states(us_state_index,us_state_choices,pref_us_states,qmark):
     return answers['us_state']
 
 def get_countries(country_index,country_choices,pref_countries,qmark):
-    
+
     def_choices = ['USA','Canada','China','Iran','Italy','France','Afghanistan','Albania','Algeria','Andorra','Angola','Anguilla','Antigua and Barbuda','Argentina','Armenia','Aruba','Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bermuda','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana','Brazil',
     'British Virgin Islands','Brunei','Bulgaria','Burkina Faso','CAR','Cabo Verde','Cambodia','Cameroon','Cayman Islands','Chad','Channel Islands','Chile','Colombia','Congo','Costa Rica','Croatia','Cuba','Curaçao','Cyprus','Czechia','DRC','Denmark','Diamond Princess','Djibouti','Dominica','Dominican Republic','Ecuador','Egypt','El Salvador','Equatorial Guinea',
     'Eritrea','Estonia','Eswatini','Ethiopia','Faeroe Islands','Fiji','Finland','French Guiana','French Polynesia','Gabon','Gambia','Georgia','Germany','Ghana','Gibraltar','Greece','Greenland','Grenada','Guadeloupe','Guatemala','Guinea','Guinea-Bissau','Guyana','Haiti','Honduras','Hong Kong','Hungary','Iceland','India','Indonesia','Iraq','Ireland','Isle of Man',
@@ -299,7 +299,7 @@ def get_countries(country_index,country_choices,pref_countries,qmark):
         if len(pref_countries) > 0:
             choices = [ele for ele in def_choices if ele not in pref_countries]
         choices = country_choices + choices
-    
+
     if len(pref_countries) > 0 and len(country_choices) == 0:
         # Remove anything all ready selected from the choices list
         choices = [ele for ele in def_choices if ele not in pref_countries]
@@ -325,7 +325,7 @@ def get_countries(country_index,country_choices,pref_countries,qmark):
     return answers['country']
 
 def get_canada_prov(canada_prov_index,canada_prov_choices,pref_canada_prov,qmark):
-    
+
     def_choices = ['Alberta','British Columbia','Manitoba','New Brunswick','Newfoundland and Labrador','Northwest Territories','Nova Scotia','Ontario','Prince Edward Island','Quebec','Saskatchewan','Yukon']
 
     choices = []
@@ -336,7 +336,7 @@ def get_canada_prov(canada_prov_index,canada_prov_choices,pref_canada_prov,qmark
         if len(pref_canada_prov) > 0:
             choices = [ele for ele in def_choices if ele not in pref_canada_prov]
         choices = canada_prov_choices + choices
-    
+
     if len(pref_canada_prov) > 0 and len(canada_prov_choices) == 0:
         # Remove anything all ready selected from the choices list
         choices = [ele for ele in def_choices if ele not in pref_canada_prov]
@@ -369,7 +369,7 @@ def main():
     parser.add_argument('--team','-t',nargs=1, action='store',type=str,help="Create simple config.json with defaults and one team")
     parser.add_argument('--check','-c',action='store_true',help="Check config.json against schema, used to see if config is out of date")
     args = parser.parse_args()
-    
+
     print("NHL LED SCOREBOARD SETUP", SMSLANT,RED, BOLD)
     print(SCRIPT_VERSION,UNDERLINE,BLUE)
 
@@ -429,9 +429,9 @@ def main():
         team = None
         team = get_team(team_index,selected_teams,preferences_teams,qmark)
         preferences_teams.append(team)
-        
+
         default_config['preferences']['teams'] = preferences_teams
-        
+
         if questionary.confirm("Save {}/config.json file?".format(args.confdir),qmark=qmarksave,style=custom_style_dope).ask():
             save_config(default_config,args.confdir)
         sys.exit(0)
@@ -454,7 +454,7 @@ def main():
         }
     ]
 
-    
+
     nhl_config = {}
 
     answers = prompt(questions, style=custom_style_dope)
@@ -515,7 +515,7 @@ def main():
     get_refresh = prompt(refresh_rate,style=custom_style_dope)
 
     preferences['preferences'].update(get_refresh)
-  
+
     selected_teams = get_default_value(default_config,['preferences','teams'],"string")
     preferences_teams = []
 
@@ -580,8 +580,8 @@ def main():
     temp_dict = {}
 
     while state_index < len(states):
-        board_list = ['clock','weather','wxalert','scoreticker','seriesticker','standings','team_summary','covid_19']
-        
+        board_list = ['clock','weather','wxalert','scoreticker','standings','team_summary','covid_19']
+
         boards_selected = []
         board = None
         select_board = True
@@ -594,12 +594,12 @@ def main():
                 select_board = select_boards(qmark)
             else:
                 select_board=False
-        
+
         temp_dict[states[state_index]] = boards_selected
-        
+
         state_index+=1
-        
-    states_dict = {'states':{}}    
+
+    states_dict = {'states':{}}
     states_dict['states'].update(temp_dict)
     nhl_config.update(states_dict)
 
@@ -628,33 +628,8 @@ def main():
     ]
 
     scoreticker_answers = prompt(scoreticker_questions,style=custom_style_dope)
-    
+
     boards_config['boards']['scoreticker'] = scoreticker_answers
-
-    # Get seriesticker config
-
-    seriesticker_questions = [
-        {
-            'type': 'confirm',
-            'name': 'preferred_teams_only',
-            'qmark': qmark,
-            'message': 'Series Ticker: Show preferred teams only? (Show only your preferred team or all the series of the playoff)',
-            'default': get_default_value(default_config,['boards','seriesticker','preferred_teams_only'],"bool")
-        },
-        {
-            'type': 'input',
-            'name': 'rotation_rate',
-            'qmark': qmark,
-            'message': 'Series Ticker: Board rotation rate? (How often do you want to rotate the series shown)',
-            'validate': lambda val: True if val.isdecimal() and int(val) >= 1 else 'Must be a number and greater or equal than 1',
-            'filter': lambda val: int(val),
-            'default': get_default_value(default_config,['boards','seriesticker','rotation_rate'],"int") or '5'
-        }
-    ]
-
-    seriesticker_answers = prompt(seriesticker_questions,style=custom_style_dope)
-    
-    boards_config['boards']['seriesticker'] = seriesticker_answers
 
     standings_questions = [
         {
@@ -716,7 +691,7 @@ def main():
     clock_answers = prompt(clock_questions,style=custom_style_dope)
 
     boards_config['boards'].update(clock = clock_answers)
-    
+
     # COVID board questions
     # COVID Worldwide Enabled Question
     covid_ww_question = [
@@ -730,7 +705,7 @@ def main():
     ]
     covid_ww_answer = prompt(covid_ww_question,style=custom_style_dope)
     boards_config['boards'].update(covid19 = covid_ww_answer)
-    
+
     # COVID Country Enabled Question
     covid_country_question = [
         {
@@ -743,11 +718,11 @@ def main():
     ]
     covid_country_answer = prompt(covid_country_question,style=custom_style_dope)
     boards_config['boards']['covid19'].update(covid_country_answer)
-    
+
     # COVID country configuration
     selected_countries = get_default_value(default_config,['boards','covid19','country'],"string")
     if covid_country_answer['country_enabled']:
-        
+
         preferences_countries = []
 
         country_index=0
@@ -786,7 +761,7 @@ def main():
     ]
     covid_us_state_answer = prompt(covid_us_state_question,style=custom_style_dope)
     boards_config['boards']['covid19'].update(covid_us_state_answer)
-    
+
     # COVID US State configuration
     selected_us_states = get_default_value(default_config,['boards','covid19','us_state'],"string")
     if covid_us_state_answer['us_state_enabled']:
@@ -827,11 +802,11 @@ def main():
     ]
     covid_canada_answer = prompt(covid_canada_prov_question,style=custom_style_dope)
     boards_config['boards']['covid19'].update(covid_canada_answer)
-    
+
     # COVID Canadian province configuration
     selected_canada_prov = get_default_value(default_config,['boards','covid19','canada_prov'],"string")
     if covid_canada_answer['canada_enabled']:
-        
+
         preferences_canada_prov = []
 
         canada_prov_index=0
@@ -937,10 +912,10 @@ def main():
             'default': get_default_value(default_config,['boards','weather','show_on_clock'],"bool") or True
             },
         ]
-        
+
         wx_answers = prompt(wx_questions,style=custom_style_dope)
         boards_config['boards']['weather'].update(wx_answers)
-        
+
     else:
         wx = False
         boards_config['boards']['weather'].update(wx_default)
@@ -1019,7 +994,7 @@ def main():
 
         alerts_answers = prompt(alerts_questions,style=custom_style_dope)
         boards_config['boards']['wxalert'].update(alerts_answers)
-        
+
     else:
         alerts = False
         boards_config['boards']['wxalert'].update(alerts_default)
@@ -1040,7 +1015,7 @@ def main():
             'name': 'enabled',
             'qmark': qmark,
             'message': 'Use dimmer',
-            'default': get_default_value(default_config,['sbio','dimmer','enabled'],"bool")  
+            'default': get_default_value(default_config,['sbio','dimmer','enabled'],"bool")
         }
     ]
 
@@ -1082,7 +1057,7 @@ def main():
                 'qmark': qmark,
                 'message' : "When to allow dimming, always or only on off days",
                 'choices' : ['always','off_day'],
-                'default' : get_default_value(default_config,['sbio','dimmer','mode'],"string") 
+                'default' : get_default_value(default_config,['sbio','dimmer','mode'],"string")
             },
             {
                 'type': 'input',
@@ -1117,7 +1092,7 @@ def main():
             'name': 'enabled',
             'qmark': qmark,
             'message': 'Use pushbutton',
-            'default': get_default_value(default_config,['sbio','pushbutton','enabled'],"bool")  
+            'default': get_default_value(default_config,['sbio','pushbutton','enabled'],"bool")
         }
     ]
     use_pb = prompt(pb_enabled,style=custom_style_dope)
@@ -1192,7 +1167,7 @@ def main():
                 'name': 'state_triggered1',
                 'qmark': qmark,
                 'message': 'Pick board to display on button press: ',
-                'choices': ['clock','weather','wxalert','scoreticker','seriesticker','standings','team_summary','covid_19'],
+                'choices': ['clock','weather','wxalert','scoreticker','standings','team_summary','covid_19'],
                 'default': get_default_value(default_config,['sbio','pushbutton','state_triggered1'],"string") or 'clock'
             },
             {
@@ -1220,4 +1195,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
