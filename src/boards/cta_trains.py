@@ -42,7 +42,10 @@ class CtaTrainTracker:
                 "Forest Park": "For. Park",
                 "O'Hare": "O'Hare",
                 "UIC Halsted": "UIC Hals.",
-                "Rosemont": "Rosemont"
+                "Rosemont": "Rosemont",
+                "Cottage Grove": "Cott. Grove",
+                "Ashland/63rd": "Ashland/63",
+                "54th/Cermak": "54/Cermak"
             }
 
             trains = []
@@ -61,7 +64,8 @@ class CtaTrainTracker:
 
                     trains.append({
                         "Dest": dest,
-                        "Time": str(round(minsuntil.seconds/60)) + " min"
+                        "Time": str(round(minsuntil.seconds/60)) + " min",
+                        "Route": route
                     })
                 print(trains)
             except:
