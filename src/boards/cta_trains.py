@@ -38,7 +38,7 @@ class CtaTrainTracker:
             print("HERE:")
             print(self.data.cta_trains.traintracker_data)
 
-            stations = {
+            destinations = {
                 "Forest Park": "For. Park",
                 "O'Hare": "O'Hare",
                 "UIC Halsted": "UIC Hals.",
@@ -52,9 +52,10 @@ class CtaTrainTracker:
                     dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
                     minsuntil =  dtarrival - datetime.datetime.now()
                     dest = train['destNm']
+                    route = train['rt']
 
                     try:
-                        dest = stations[dest]
+                        dest = destinations[dest]
                     except:
                         dest = dest
 
@@ -66,7 +67,7 @@ class CtaTrainTracker:
             except:
                 trains.append({
                     "Dest": "No",
-                    "Time": "Data"
+                    "Time": "Data",
                 })
 
             # experimenting/poking around the data variable
