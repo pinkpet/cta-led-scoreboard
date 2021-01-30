@@ -3,20 +3,20 @@
 
 
 ## Support and community
-We have a nice community growing every day on discord. If you need help 
+We have a nice community growing every day on discord. If you need help
 or you are curious about the development of the project, come join us by clicking on this button.
 
 [![discord button](assets/images/discord_button.png)](https://discord.gg/CWa5CzK)
 
 Want to help me turn coffee into features? Or just want to contribute
-for my work? 
+for my work?
 
 <a href="https://www.buymeacoffee.com/MgDa5sr" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/black_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 ## Tutorials from other source
 >"I followed instructions from somewhere else and I'm having issues"
 
-This project is new and is in constant evolution. Please read the documentation and instructions to install and run this software provided here. 
+This project is new and is in constant evolution. Please read the documentation and instructions to install and run this software provided here.
 
 
 ## Requirements
@@ -60,7 +60,7 @@ Since version V1.0.0 you need python 3.3 and up.
     - [Terminal Mode](#terminal-mode)
   - [Shout-out](#shout-out)
   - [Licensing](#licensing)
-  
+
 
 
 ## Features
@@ -84,18 +84,12 @@ There are currently three different boards available:
 -   **Team Summary**: Display your preferred team's summary. It displays their standing record, the result of their previous game and the next game on their schedule.
 -   **Standings**: Display the standings either by conference or by division. The Wildcard is currently not available, due to the NHL API not providing the info, this will probably be back for next season.
 -   **Clock**: a basic clock. (***NEW***: Now with the option to show basic weather information and weather alert. More details [here](https://github.com/riffnshred/nhl-led-scoreboard/tree/beta/src/api/weather))
--   **Weather**: Display weather information and also provide weather alerts. 
+-   **Weather**: Display weather information and also provide weather alerts.
 -   **Covid-19**: Show the number of cases, deaths and recovered cases of the covid-19 virus in real time (API updates about every 15 min).
 
 The board system also allows to easily integrate new features. For example, if you want to have a clock displayed during the day along with other boards, or if you wish one of the existing boards would show something different, you can make your own and integrate it without touching the main software. I strongly suggest you play around with the python examples in the [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix/tree/master/bindings/python#building) to learn how to display anything on the matrix.
 
 More will come soon with playoff related features
-
-### Goal animation
-<img  width="400" src="https://github.com/riffnshred/image_bank/blob/master/nhl-led-scoreboard/documentation/goal_light_animation.png">
-When ever a team in the main event score a goal, a goal light animation is played.
-Soon you will have to option to set the animation for your favorite team only or play a different animation for
-the opposing team.
 
 ### Dimmer
 The scoreboard now has a dimmer function. The scoreboard will change its brightness at sunrise and sunset. If you have
@@ -118,11 +112,11 @@ If you are using an other repo that is a fork of this one you can set to check t
 ## Time and data accuracy
 For this version, the scoreboard refreshes the data at a faster rate (15 seconds by default, don't go faster than 10). This does not change the fact that the data from the API is refreshed every minute. The faster refresh rate allows catching the new data from the API faster.
 
-Syncing the scoreboard with a TV Broadcast is, to my knowledge, impossible. The delay between the actual game and the TV 
+Syncing the scoreboard with a TV Broadcast is, to my knowledge, impossible. The delay between the actual game and the TV
 broadcast is different depending on where you are in relation to the game's location. This also means that you will see the goal animation before it happens on TV. I'm working on this issue and looking to find a solution to implement
 a delay.
 
-Also, it might happen the data shown on board might be wrong for a short time, even goals. That's because the API is drunk. If you see data that might be wrong, compare it to the nhl.com and see if it's different. 
+Also, it might happen the data shown on board might be wrong for a short time, even goals. That's because the API is drunk. If you see data that might be wrong, compare it to the nhl.com and see if it's different.
 
 ## Installation
 
@@ -134,8 +128,8 @@ appropriate parts or to check the [rpi-rgb-led-matrix ](https://github.com/hzell
 Please refer to the [Home page](https://github.com/riffnshred/nhl-led-scoreboard/wiki/Home) and [Hardware page](https://github.com/riffnshred/nhl-led-scoreboard/wiki/Hardware) in the wiki section. You will find everything you need to order and build your scoreboard.
 
 #### Installing and configuring a button.
-To install and configure a button, please refer the well writen and detailed documentation in the SBIO section here: 
-[src/sbio/SBIO.md](https://github.com/riffnshred/nhl-led-scoreboard/blob/master/src/sbio/SBIO.md). 
+To install and configure a button, please refer the well writen and detailed documentation in the SBIO section here:
+[src/sbio/SBIO.md](https://github.com/riffnshred/nhl-led-scoreboard/blob/master/src/sbio/SBIO.md).
 
 ### Software Installation
 #### Raspbian Buster Lite
@@ -145,7 +139,7 @@ This version does not have a GUI which allows the Pi to dedicate as much resourc
 
 ![scoreboard demo](assets/images/raspbian_buster_lite.png)
 
-Follow these instructions to install Raspbian Buster Lite on your Raspberry Pi and once you are up and running comeback to 
+Follow these instructions to install Raspbian Buster Lite on your Raspberry Pi and once you are up and running comeback to
 this page.
 
 [Raspbian Buster Lite Installation](https://medium.com/@danidudas/install-raspbian-jessie-lite-and-setup-wi-fi-without-access-to-command-line-or-using-the-network-97f065af722e)
@@ -187,7 +181,7 @@ If you face any issue after updating, rerun the install and it should fix it. ot
 
 
 ## Testing and Optimization
-If you have been using a Led matrix on a raspberry pi before and know how to run it properly skip this part. 
+If you have been using a Led matrix on a raspberry pi before and know how to run it properly skip this part.
 
 If you just bought your Led matrix and want to run this software right away, first thank you. Second, don't get too excited just yet.
 Depending on your setup, you will need to configure the scoreboard using specific command flags when you run it.
@@ -264,12 +258,12 @@ MOD. If not, replace the first flag with --led-gpio-mapping=adafruit-hat).
 ~~First thing first, Open the config.json file from the config directory to configure your scoreboard.~~
 Since V1.1.2, you won't need to reconfigure your board everytime you update, **UNLESS** we add a major feature or we make a major update. There is 2 way to configure you board:
 
-#### Using the nhl_setup app (recommended) 
+#### Using the nhl_setup app (recommended)
 from the root of the `nhl-led-scoreboard`, run this command: `./nhl_setup`. Please take a look at the documentation here: [src/nhl_setup/README.md](https://github.com/riffnshred/nhl-led-scoreboard/tree/master/src/nhl_setup)
 
 #### Configuring manualy.
-If you have no issue working with json files in a prompt, you can still configure manualy. 
-FIRST, you will need to make a copy of the config.json.sample and rename it config.json. Then open it and modify the options. 
+If you have no issue working with json files in a prompt, you can still configure manualy.
+FIRST, you will need to make a copy of the config.json.sample and rename it config.json. Then open it and modify the options.
 
 ### Modes
 These are options to set the scoreboard to run in a certain mode. This is where you enable the live game mode
@@ -280,16 +274,16 @@ while will show the scoreboard of your favorite game when it's live.
 | `live_mode` | Bool | true, false | Enable the live mode which show live game data of your favorite team. |
 
 ### Preferences
-All the data related options. 
+All the data related options.
 | Settings                 | Type   | Parameters                                       | Description                                                                                                                                                                          |
 |--------------------------|--------|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `live_game_refresh_rate` | INT    | `15`                                             | The rate at which a live game will call the NHL API to catch the new data. Do not go under 10 seconds as it's pointless and will affect your scoreboard performance.(Default 15 sec) |
 | `time_format`            | String | `"12h"` or `"24h"`                               | The format in which the game start time will be displayed.                                                                                                                           |
 | `end_of_day`             | String | `"12:00"`                                        | A 24-hour time you wish to consider the end of the previous day before starting to display the current day's games.                                                                  |
-| `location`             | String | `"City,State/Province"`                            | Location at which you would like to get weather updates. (Ex  `"Ottawa,ON"`) 
+| `location`             | String | `"City,State/Province"`                            | Location at which you would like to get weather updates. (Ex  `"Ottawa,ON"`)
 | `teams`                  | Array  | `["Canadiens", Blackhawks", "Avalanche"]`        | List of preferred teams. First one in the list is considered the favorite. If left empty, the scoreboard will be in "offday" mode|
 | `sog_display_frequency`                  | INT| `4`        | On data update frequency at which the Shots on goal stats appear while showing the scoreboard during a game. (Ex: the shots on goal will show every 4th data update)|      
-                                                                                                                                             
+
 ### Goal Animations
 The goal animations is a gif image shown whene there is a new goal. You can now use you own goal animation. They need to be `.gif` animation and the resolution of the screen (64px x 32px or more if you use bigger screen) and placed into `assets/animations/goal/all`. You can also use specific animation for when your preferred team score or the opposing team score by putting the `.gif` animation into `assets/animations/goal/preferred` and/or `assets/animations/goal/opposing`. If you put multiple animation, the scoreboard will pick one rendomly everytime a new goal come up.
 
@@ -359,7 +353,7 @@ depending on the state of the scoreboard. Currently, there are only three boards
 
 
 ### Dimmer
-The scoreboard can adjust the brightness of the matrix will running using the Dimmer function. By default, if enabled, 
+The scoreboard can adjust the brightness of the matrix will running using the Dimmer function. By default, if enabled,
 the scoreboard software will detect your location using your IP address and will calculate the when the sun rise and the sun set.
 It will then use these moments to change the brightness of the screen depending on the parameters set in the config.
 
@@ -387,7 +381,7 @@ If you've done the anti-flickering mod, change the `--led-gpio-mapping=adafruit-
 sudo python3 src/main.py --led-gpio-mapping=adafruit-hat --led-brightness=60 --led-slowdown-gpio=2
 ```
 
-Once you know it runs well, turn off your command prompt. **SURPRISE !!!** the screen stop! That's because the SSH connection is interrupted and so the 
+Once you know it runs well, turn off your command prompt. **SURPRISE !!!** the screen stop! That's because the SSH connection is interrupted and so the
 python script stopped.
 
 There are multiple ways to run the Scoreboard on it's own. I'm going to cover 2 ways. One that's a bit more hand's on, and the other will run the
@@ -439,7 +433,7 @@ the `{user}` will be `pi`.
 
 Now, reboot the raspberry pi. It should run the scoreboard automatically. Open a browser and enter the ip address of your raspberry pi in the address bar
 fallowing of `:9001`. It should look similar to this `192.168.2.19:9001`. You will see the supervisor dashboard with the scoreboard process running.
-If you see the dashboard but no process, reboot the pi and refresh the page. 
+If you see the dashboard but no process, reboot the pi and refresh the page.
 
 You should be up and running now. From the supervison dashboard, you can control the process of the scoreboard (e.g start, restart, stop).
 
@@ -448,7 +442,7 @@ is doing in case of a problem.
 
 ### Method 2 Using Terminal Multiplexer
 To make sure it keeps running you will need a Terminal Multiplexer like. [Screen](https://linuxize.com/post/how-to-use-linux-screen/).
-This allows you to run the scoreboard manually in a terminal and 
+This allows you to run the scoreboard manually in a terminal and
 To install Screen, run the fallowing in your terminal.
 ```
 sudo apt install screen
@@ -459,7 +453,7 @@ Then start a screen session like so
 screen
 ```
 
-Now run the scoreboard. Once it's up and running do `Ctrl+a` then `d`. This will detach the screen session from your terminal. 
+Now run the scoreboard. Once it's up and running do `Ctrl+a` then `d`. This will detach the screen session from your terminal.
 NOW ! close the terminal. VOILA !!! The scoreboard now runs on it's own.
 
 To go back and stop the scoreboard, open your terminal again and ssh to your Pi. Once you are in, do `screen -r`. This will bring the screen session up on your terminal.
