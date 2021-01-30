@@ -36,5 +36,5 @@ if __name__ == "__main__":
         go = TrainTracker()
         go.get_trains()
     except KeyboardInterrupt:
-        print("Exiting CTA-SCOREBOARD. Doors closing.\n")
+        print("Exiting CTA-TRACKER. Doors closing.\n")
         sys.exit(0)

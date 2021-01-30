@@ -6,7 +6,6 @@ from boards.boards import Boards
 from boards.clock import Clock
 from data.scoreboard import Scoreboard
 from renderer.scoreboard import ScoreboardRenderer
-from renderer.goal import GoalRenderer
 from utils import get_file
 import random
 import glob

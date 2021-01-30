@@ -69,25 +69,6 @@ class CtaTrainTracker:
                     "Time": "Data"
                 })
 
-
-            self.team_id = team_id
-
-            team = self.teams_info[team_id]
-            team_data = Team(
-                team.team_id,
-                team.abbreviation,
-                team.name
-            )
-
-            team_colors = self.data.config.team_colors
-            prev_game = team.previous_game
-            next_game = team.next_game
-
-            stats = team.stats
-            im_height = 64
-            team_abbrev = team.abbreviation
-            team_logo = Image.open(get_file('assets/logos/{}.png'.format(team_abbrev)))
-
             # experimenting/poking around the data variable
             print("Here comes the weather data print!")
             print(self.data.wx_current)
