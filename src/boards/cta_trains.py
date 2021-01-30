@@ -213,6 +213,18 @@ class CtaTrainTracker:
         pos = 0
         loop_count = 0 + train_start
         print(cta_data)
+
+        route_colors = {
+            "Red": (227, 25, 55),
+            "Blue": (0, 157, 220),
+            "Brown": (118, 66, 0),
+            "Green": (0, 169, 79),
+            "Orange": (244, 120, 54),
+            "Purple": (73, 47, 146),
+            "Pink": (243, 139, 185),
+            "Yellow": (255, 232, 0)
+        }
+
         while loop_count < train_max:
             if(len(cta_data) > 0):
                 #index error here...please fix
@@ -220,7 +232,7 @@ class CtaTrainTracker:
                 draw.text((3, pos), "{}".format(cta_data[loop_count]['Dest']), fill=(255, 255, 255), font=self.font, align="right")
                 draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
                 #if done for lines other than the blue line, then create a dictionary with all the line names and their corresponding rgb values, then use the cta data feed to populate it.
-                draw.rectangle((0, pos + 1, 1, pos + 5), fill = (0, 157, 220))
+                draw.rectangle((0, pos + 1, 1, pos + 5), fill = route_colors[cta_data[loop_count]['Route']]
             pos += 7
             loop_count += 1
         print(cta_data)
