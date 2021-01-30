@@ -233,7 +233,7 @@ class CtaTrainTracker:
                 draw.text((43,pos), "{}".format(cta_data[loop_count]['Time']), fill=(255, 255, 255), font=self.font, align="right")
                 #if done for lines other than the blue line, then create a dictionary with all the line names and their corresponding rgb values, then use the cta data feed to populate it.
                 print(cta_data[loop_count]['Route'])
-                draw.rectangle((0, pos + 1, 1, pos + 5), fill = (118, 66, 0))
+                draw.rectangle((0, pos + 1, 1, pos + 5), fill = route_colors[cta_data[loop_count]['Route']]
             pos += 7
             loop_count += 1
         print(cta_data)
