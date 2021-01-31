@@ -44,7 +44,7 @@ class CtaTrainTracker:
                 "UIC Halsted": "UIC Hals.",
                 "Rosemont": "Rosemont",
                 "Cottage Grove": "Cot. Grove",
-                "Ashland/63rd": "Ash./63",
+                "Ashland/63rd": "Ashl./63",
                 "54th/Cermak": "54/Cermak",
                 "Harlem/Lake": "Har./Lake",
                 "95th/Dan Ryan": "95/Dan R."
