@@ -19,9 +19,9 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import debug
 import os
 
-SCRIPT_NAME = "NHL-LED-SCOREBOARD"
+SCRIPT_NAME = "CTA-Train-Tracker"
 
-SCRIPT_VERSION = "1.3.1"
+SCRIPT_VERSION = "1.0"
 
 
 def run():
@@ -117,5 +117,5 @@ if __name__ == "__main__":
         run()
 
     except KeyboardInterrupt:
-        print("Exiting CTA-SCOREBOARD. Doors closing.\n")
+        print("Exiting CTA-Train-Tracker. Doors closing.\n")
         sys.exit(0)

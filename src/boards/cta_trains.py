@@ -15,11 +15,7 @@ from utils import convert_date_format, get_file
 
 class CtaTrainTracker:
     def __init__(self, data, matrix,sleepEvent):
-        '''
-            TODO:
-                Need to move the Previous/Next game info in the data section. I think loading it in the data section
-                and then taking that info here would make sense
-        '''
+
         self.data = data
         self.data.cta_trains.get_trains()
         self.teams_info = data.teams_info
@@ -34,8 +30,7 @@ class CtaTrainTracker:
         self.sleepEvent.clear()
 
     def render(self):
-        for team_id in self.preferred_teams:
-            print("HERE:")
+        while True:
             print(self.data.cta_trains.traintracker_data)
 
             destinations = {
@@ -77,8 +72,6 @@ class CtaTrainTracker:
                 })
 
             # experimenting/poking around the data variable
-            print("Here comes the weather data print!")
-            print(self.data.wx_current)
 
             i = 0
 
