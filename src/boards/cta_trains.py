@@ -18,7 +18,6 @@ class CtaTrainTracker:
 
         self.data = data
         self.data.cta_trains.get_trains()
-        self.preferred_teams = data.pref_teams
         self.matrix = matrix
         self.team_colors = data.config.team_colors
 
