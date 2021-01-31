@@ -48,10 +48,10 @@ class CtaTrainTracker:
             try:
                 for train in self.data.cta_trains.traintracker_data['ctatt']['eta']:
                     dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
-                    print("Arrival time: " + dtarrival)
+                    print("Arrival time: " + str(dtarrival))
                     minsuntil =  dtarrival - datetime.datetime.now()
-                    print("Current time: " + datetime.datetime.now())
-                    print("Mins until arrival: " + minsuntil)
+                    print("Current time: " + str(datetime.datetime.now()))
+                    print("Mins until arrival: " + str(minsuntil))
                     dest = train['destNm']
                     route = train['rt']
 
