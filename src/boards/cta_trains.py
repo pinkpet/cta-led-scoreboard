@@ -50,6 +50,10 @@ class CtaTrainTracker:
                     dtarrival = datetime.datetime.strptime(train['arrT'], '%Y-%m-%dT%H:%M:%S')
                     print("Arrival time: " + str(dtarrival))
                     minsuntil =  dtarrival - datetime.datetime.now()
+                    minsuntil = str(round(minsuntil.seconds/60))
+                    if minsuntil > 1000:
+                        minsuntil = "Delay"
+
                     print("Current time: " + str(datetime.datetime.now()))
                     print("Mins until arrival: " + str(minsuntil))
                     dest = train['destNm']
@@ -62,7 +66,7 @@ class CtaTrainTracker:
 
                     trains.append({
                         "Dest": dest,
-                        "Time": str(round(minsuntil.seconds/60)) + " min",
+                        "Time": minsuntil + " min",
                         "Route": route
                     })
                 print(trains)
