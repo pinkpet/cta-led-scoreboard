@@ -63,15 +63,6 @@ def prioritize_pref_series(series, teams):
 
 class Data:
     def __init__(self, config):
-        """
-            TODO:
-                - Rearrange the Teams info. (make one function instead of two)
-                - Add Delay option to match the TV broadcast
-                - Add Playoff data info.
-                - Add Powerplay info
-                - Make a Shootout layout with check boxes for each attempt
-        :param config:
-        """
 
         # Get lat/long for dimmer and weather
         self.latlng = get_lat_lng(config.location)
@@ -121,20 +112,11 @@ class Data:
         # Flag for when the data live feed of a game has updated
         self.new_data = True
 
-        # Get each team's data from the teams info
-        self.get_teams_info()
-
-        # Get favorite team's id
-        self.pref_teams = self.get_pref_teams_id()
-
         # Parse today's date and see if we should use today or yesterday
         self.refresh_current_date()
 
         # Set the pointer to the first game in the list of Pref Games
         self.current_game_index = 0
-
-        # Fetch the games for today
-        self.refresh_games()
 
         # Flag to indicate if all preferred games are Final
         self.all_pref_games_final = False
@@ -144,9 +126,6 @@ class Data:
 
         # Get the status from the API
         self.get_status()
-
-        # Get refresh standings
-        self.refresh_standings()
 
         # Get Covid 19 Data
         self.covid19 = covid19_data()
@@ -193,9 +172,6 @@ class Data:
             # Get the teams info
             self.teams = self.get_teams()
 
-            # Get favorite team's id
-            self.pref_teams = self.get_pref_teams_id()
-
             # Reset flag
             self.all_pref_games_final = False
 
@@ -223,57 +199,6 @@ class Data:
                 debug.error(error_message)
                 attempts_remaining -= 1
                 sleep(NETWORK_RETRY_SLEEP_TIME)
-
-    def refresh_games(self):
-        """
-            Refresh the current list of games of the day.
-
-            self.games : List of all the games happening today
-            self.pref_games : List of games which the preferred teams are ordered by priority.
-
-            If the user want's to rotate only his preferred games between the periods and during the day, save those
-            only. Lastly, If if not an Off day for the pref teams, reorder the list in order of preferred teams and load
-            the first game as the main event.
-        """
-        attempts_remaining = 5
-        while attempts_remaining > 0:
-            try:
-                self.games = nhl_api.day(self.year, self.month, self.day)
-                self.pref_games = filter_list_of_games(self.games, self.pref_teams)
-                if self.config.preferred_teams_only and self.pref_teams:
-                    self.games = self.pref_games
-
-                if not self.is_pref_team_offday():
-                    self.pref_games = prioritize_pref_games(self.pref_games, self.pref_teams)
-                    self.check_all_pref_games_final()
-
-                    self.current_game_id = self.pref_games[self.current_game_index].game_id
-
-
-                    # Remove the current game id (Main event) form the list of games.
-                    if self.config.live_mode:
-                        game_list = []
-                        for game in self.games:
-                            if game.game_id != self.current_game_id:
-                                game_list.append(game)
-                        self.games = game_list
-
-                self.network_issues = False
-                break
-
-            except ValueError as error_message:
-                self.network_issues = True
-                debug.error("Failed to refresh the list of games. {} attempt remaining.".format(attempts_remaining))
-                debug.error(error_message)
-                attempts_remaining -= 1
-                sleep(NETWORK_RETRY_SLEEP_TIME)
-
-            except IndexError as error_message:
-                debug.error(error_message)
-                debug.info("All preferred games are Final, showing the top preferred game")
-                self.current_game_index = 0
-                self.all_pref_games_final = True
-                self.refresh_games()
 
     def check_all_pref_games_final(self):
         for game in self.pref_games:
@@ -338,68 +263,7 @@ class Data:
             return False
 
         self.current_game_index += 1
-        self.refresh_games()
         return True
-
-    #
-    # Standings
-
-    def refresh_standings(self):
-        attempts_remaining = 5
-        while attempts_remaining > 0:
-            try:
-                self.standings = nhl_api.standings()
-                break
-
-            except ValueError as error_message:
-                self.network_issues = True
-                debug.error("Failed to refresh the Standings. {} attempt remaining.".format(attempts_remaining))
-                debug.error(error_message)
-                attempts_remaining -= 1
-                sleep(NETWORK_RETRY_SLEEP_TIME)
-
-    #
-    # Teams
-
-    def get_teams_info(self):
-        try:
-            info_by_id = {}
-            for team in self.teams:
-                info_by_id[team.team_id] = team
-
-            self.teams_info = info_by_id
-        except TypeError:
-            self.teams_info = []
-
-    def get_pref_teams_id(self):
-        """
-            Finds the preferred teams ID. The type of Team information variate throughout the API except for the team's id.
-            Working with that will be much easier.
-
-        :return: list of the preferred team's ID in order
-        """
-        try:
-            allteams = self.teams
-            pref_teams = self.config.preferred_teams
-            allteams_id = {}
-            pref_teams_id = []
-            # Put all the team's in a dict with there name as KEY and ID as value.
-            for team in allteams:
-                allteams_id[team.team_name] = team.team_id
-
-            # Go through the list of preferred teams name. If the team's name exist, put the ID in a new list.
-            if pref_teams:
-                for team in pref_teams:
-                    if team in allteams_id:
-                        pref_teams_id.append(allteams_id[team])
-                    else:
-                        debug.warning(team + " is not a team of the NHL. Make sure you typed team's name properly")
-
-                return pref_teams_id
-            else:
-                return False
-        except TypeError:
-            return []
 
     #
     #
@@ -432,12 +296,3 @@ class Data:
 
         # Parse today's date and see if we should use today or yesterday
         self.refresh_current_date()
-
-        # Update team's data
-        self.get_teams_info()
-
-        # Update games for today
-        self.refresh_games()
-
-        # Update standings
-        self.refresh_standings()

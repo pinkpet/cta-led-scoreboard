@@ -119,7 +119,7 @@ class CtaTrainTracker:
                 if(len(self.data.wx_current) > 0):
                     draw.text((0, 1), self.data.wx_current[3], fill=(255, 255, 255), font=weather_text_font, align="right")
                     draw.text((25,-3), self.data.wx_current[1], fill=(255, 255, 255), font=weather_icons_font, align="right")
-                print('\U0001f638')
+                print(self.data.wx_current)
 
                 #here comes the main layout
                 self.matrix.clear()
