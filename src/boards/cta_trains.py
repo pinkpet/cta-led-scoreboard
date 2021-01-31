@@ -71,9 +71,6 @@ class CtaTrainTracker:
                     "Time": "Data",
                 })
 
-            # experimenting/poking around the data variable
-
-        #    i = 0
 
             if not self.sleepEvent.is_set():
                 #Create images for the train scroller
@@ -94,7 +91,7 @@ class CtaTrainTracker:
 
                 #image SCROLLER!
                 #in the future, this would be good to do programmatically (that is, use os to find the number of files in the folder, and then go from there.)
-                png_number = random.randint(1,12)
+                png_number = random.randint(1,7)
                 cta_logo_image = Image.open(get_file('assets/images/cta/cta-' + str(png_number) + '.png'))
                 cta_img_width, cta_img_height = cta_logo_image.size
                 cta_xpos = 0
