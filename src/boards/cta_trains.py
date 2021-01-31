@@ -43,7 +43,7 @@ class CtaTrainTracker:
                 "O'Hare": "O'Hare",
                 "UIC Halsted": "UIC Hals.",
                 "Rosemont": "Rosemont",
-                "Cottage Grove": "Cott. Grove",
+                "Cottage Grove": "Cot. Grove",
                 "Ashland/63rd": "Ash./63",
                 "54th/Cermak": "54/Cermak",
                 "Harlem/Lake": "Har./Lake"
@@ -223,7 +223,7 @@ class CtaTrainTracker:
             "Org": (244, 120, 54),
             "Purple": (73, 47, 146),
             "Pink": (243, 139, 185),
-            "Yellow": (255, 232, 0)
+            "Y": (255, 232, 0)
         }
 
         while loop_count < train_max:
