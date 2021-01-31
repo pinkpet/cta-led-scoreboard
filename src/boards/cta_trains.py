@@ -46,7 +46,8 @@ class CtaTrainTracker:
                 "Cottage Grove": "Cot. Grove",
                 "Ashland/63rd": "Ash./63",
                 "54th/Cermak": "54/Cermak",
-                "Harlem/Lake": "Har./Lake"
+                "Harlem/Lake": "Har./Lake",
+                "95th/Dan Ryan": "95/Dan R."
             }
 
             trains = []
