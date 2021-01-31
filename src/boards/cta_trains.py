@@ -73,7 +73,7 @@ class CtaTrainTracker:
 
             # experimenting/poking around the data variable
 
-            i = 0
+        #    i = 0
 
             if not self.sleepEvent.is_set():
                 #Create images for the train scroller
