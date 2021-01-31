@@ -44,8 +44,9 @@ class CtaTrainTracker:
                 "UIC Halsted": "UIC Hals.",
                 "Rosemont": "Rosemont",
                 "Cottage Grove": "Cott. Grove",
-                "Ashland/63rd": "Ashland/63",
-                "54th/Cermak": "54/Cermak"
+                "Ashland/63rd": "Ash./63",
+                "54th/Cermak": "54/Cermak",
+                "Harlem/Lake": "Har./Lake"
             }
 
             trains = []
