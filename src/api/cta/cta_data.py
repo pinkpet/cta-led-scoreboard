@@ -14,7 +14,7 @@ class TrainTracker:
 
     def get_trains(self):
         print("Train tracker initiated.")
-        payload = {'key': cta_config.api_key, 'mapid': cta_config.mapid, 'max': 6, 'outputType': 'JSON'}
+        payload = {'key': cta_config.api_key, 'mapid': cta_config.mapid, 'max': 8, 'outputType': 'JSON'}
         try:
             response = requests.get(MAIN_URL, params=payload)
             self.traintracker_data = json.loads(response.text)
