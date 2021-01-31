@@ -51,7 +51,7 @@ class CtaTrainTracker:
                     print("Arrival time: " + str(dtarrival))
                     minsuntil =  dtarrival - datetime.datetime.now()
                     minsuntil = str(round(minsuntil.seconds/60))
-                    if minsuntil > 1000:
+                    if(minsuntil > 1000):
                         minsuntil = "Delay"
 
                     print("Current time: " + str(datetime.datetime.now()))
