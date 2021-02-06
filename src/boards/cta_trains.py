@@ -51,8 +51,6 @@ class CtaTrainTracker:
                     print("Arrival time: " + str(dtarrival))
                     minsuntil =  dtarrival - datetime.datetime.now()
                     minsuntil = round(minsuntil.seconds/60)
-                    if(minsuntil > 1000):
-                        minsuntil = "Delay"
 
                     print("Current time: " + str(datetime.datetime.now()))
                     print("Mins until arrival: " + str(minsuntil))
@@ -64,11 +62,13 @@ class CtaTrainTracker:
                     except:
                         dest = dest
 
-                    trains.append({
-                        "Dest": dest,
-                        "Time": str(minsuntil) + " min",
-                        "Route": route
-                    })
+                    #The data sometimes shows trains whose arrival time is in the past. These often end up having very large arrival times--this acts as a hacky filter for those.
+                    if(minsuntil < 100):
+                        trains.append({
+                            "Dest": dest,
+                            "Time": str(minsuntil) + " min",
+                            "Route": route
+                        })
                 print(trains)
             except:
                 trains.append({
